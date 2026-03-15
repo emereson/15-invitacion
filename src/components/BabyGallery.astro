@@ -2,23 +2,27 @@
 // src/components/BabyGallery.astro
 
 const childhoodPhotos = [
-  { src: "/img/BABYPICT/b3.jpg", alt: "Maya de bebé", rotate: "-rotate-3" },
-  { src: "/img/BABYPICT/b5.jpg", alt: "Primeros pasos", rotate: "rotate-2" },
-  { src: "/img/BABYPICT/b1.jpg", alt: "Maya jugando", rotate: "-rotate-2" },
-  { src: "/img/BABYPICT/b4.jpg", alt: "Cumpleaños 5", rotate: "rotate-3" },
+  { src: "/img/BABYPICT/b3.webp", alt: "Maya de bebé", rotate: "-rotate-3" },
+  { src: "/img/BABYPICT/b5.webp", alt: "Primeros pasos", rotate: "rotate-2" },
+  { src: "/img/BABYPICT/b1.webp", alt: "Maya jugando", rotate: "-rotate-2" },
+  { src: "/img/BABYPICT/b4.webp", alt: "Cumpleaños 5", rotate: "rotate-3" },
   {
-    src: "/img/BABYPICT/b2.jpg",
+    src: "/img/BABYPICT/b2.webp",
     alt: "Maya en el parque",
     rotate: "-rotate-1",
   },
-  { src: "/img/BABYPICT/b6.jpg", alt: "Recuerdos felices", rotate: "rotate-6" },
+  {
+    src: "/img/BABYPICT/b6.webp",
+    alt: "Recuerdos felices",
+    rotate: "rotate-6",
+  },
 ];
 ---
 
 <section class="relative w-full py-24 bg-white overflow-hidden px-4 md:px-8">
   {/* 🟢 DECORACIÓN DE FONDO (Hojas y Flores) */}
   <div
-    class="absolute inset-0 bg-[url('/img/hoja.jpg')] bg-repeat opacity-[0.05] pointer-events-none"
+    class="absolute inset-0 bg-[url('/img/hoja.webp')] bg-repeat opacity-[0.05] pointer-events-none"
   >
   </div>
 
@@ -64,7 +68,7 @@ const childhoodPhotos = [
           {/* Flores decorativas pegadas a algunas fotos */}
           {index % 2 === 0 && (
             <img
-              src="/img/rosa.png"
+              src="/img/rosa.webp"
               alt=""
               class="absolute -top-4 -right-4 w-10 md:w-16 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-sway"
             />
@@ -76,17 +80,17 @@ const childhoodPhotos = [
 
   {/* 🟢 FLORES FLOTANTES EXTRAS POR LA SECCIÓN */}
   <img
-    src="/img/lirio.png"
+    src="/img/lirio.webp"
     alt=""
     class="absolute top-[15%] left-[-5%] w-32 md:w-56 opacity-20 -rotate-45 pointer-events-none"
   />
   <img
-    src="/img/rosa.png"
+    src="/img/rosa.webp"
     alt=""
     class="absolute bottom-[10%] right-[-2%] w-24 md:w-48 opacity-30 rotate-12 pointer-events-none"
   />
   <img
-    src="/img/lirio.png"
+    src="/img/lirio.webp"
     alt=""
     class="absolute top-[50%] right-[2%] w-16 md:w-32 opacity-15 rotate-90 pointer-events-none"
   />
