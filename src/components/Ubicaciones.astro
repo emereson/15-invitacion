@@ -1,0 +1,172 @@
+---
+// src/components/Ubicaciones.astro
+---
+
+<section
+  class="relative w-full py-16 flex justify-center items-center bg-gray-50 overflow-hidden px-4 md:px-8 -mt-1"
+>
+  {
+    /* 🟢 CONTENEDOR PRINCIPAL - Inverso (flex-col-reverse en móvil, md:flex-row-reverse en escritorio) */
+  }
+  <div
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row-reverse gap-10 md:gap-0"
+  >
+    {/* 🟢 COLUMNA DE LA IMAGEN (Derecha en escritorio) */}
+    <div
+      class="w-full md:w-1/2 relative h-[55dvh] md:h-auto overflow-hidden group rounded-3xl md:rounded-r-3xl md:rounded-l-none shadow-xl md:shadow-none"
+    >
+      <img
+        src="/img/05.jpg"
+        alt="Evento"
+        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div class="absolute inset-0 bg-black/10"></div>
+    </div>
+
+    {/* 🟢 COLUMNA DE TEXTO (Izquierda en escritorio) */}
+    <div
+      class="w-full md:w-1/2 relative px-6 py-16 md:p-16 flex flex-col justify-center items-center text-center bg-[url('/img/hoja.jpg')] bg-repeat bg-cover bg-center rounded-3xl md:rounded-l-3xl md:rounded-r-none shadow-lg md:shadow-none border-y md:border-y-0 md:border-l border-gray-100"
+    >
+      <div
+        class="absolute inset-0 bg-white/60 backdrop-blur-[1px] rounded-3xl md:rounded-l-3xl md:rounded-r-none"
+      >
+      </div>
+
+      {/* 🟢 DECORACIÓN FLORAL INVERSA */}
+      <img
+        src="/img/lirio.png"
+        alt=""
+        class="absolute top-4 right-4 w-14 md:w-20 opacity-40 rotate-15 animate-sway"
+      />
+      <img
+        src="/img/rosa.png"
+        alt=""
+        class="absolute bottom-10 left-4 w-12 md:w-16 opacity-40 -rotate-45 animate-sway-delayed"
+      />
+
+      <div class="relative z-10 w-full flex flex-col items-center">
+        {/* IGLESIA */}
+        <div class="scroll-reveal flex flex-col items-center mb-12">
+          <h3 class="font-script text-5xl md:text-6xl text-[#E63946] mb-4">
+            Ceremonia Religiosa
+          </h3>
+          <p
+            class="font-elegante text-xl md:text-2xl text-gray-800 font-bold uppercase tracking-widest"
+          >
+            San Phillip Neri Church
+          </p>
+          <p class="font-elegante text-lg text-gray-600 mt-2">
+            3021 Grand Concourse, Bronx, NY 10468
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=3021+Grand+Concourse+Bronx+NY+10468"
+            target="_blank"
+            class="mt-4 px-6 py-2 border border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm"
+          >
+            VER MAPA
+          </a>
+        </div>
+
+        {/* SEPARADOR */}
+        <div class="w-24 h-px bg-[#E63946]/30 mb-12 scroll-reveal"></div>
+
+        {/* LUGAR DE EVENTO */}
+        <div class="scroll-reveal flex flex-col items-center mb-12">
+          <h3 class="font-script text-5xl md:text-6xl text-[#E63946] mb-4">
+            Recepción
+          </h3>
+          <p
+            class="font-elegante text-xl md:text-2xl text-gray-800 font-bold uppercase tracking-widest"
+          >
+            Maestro's Caterers
+          </p>
+          <p class="font-elegante text-lg text-gray-600 mt-2">
+            1703 Bronxdale Ave. Bronx, NY 10462
+          </p>
+          <a
+            href="https://www.google.com/maps/search/?api=1&query=1703+Bronxdale+Ave+Bronx+NY+10462"
+            target="_blank"
+            class="mt-4 px-6 py-2 border border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm"
+          >
+            VER MAPA
+          </a>
+        </div>
+
+        {/* CÓDIGO DE VESTIMENTA */}
+        <div
+          class="scroll-reveal mt-4 p-6 bg-[#E63946]/5 rounded-2xl border border-[#E63946]/10 flex flex-col items-center"
+        >
+          <span
+            class="font-elegante text-xs tracking-[0.3em] text-gray-500 uppercase mb-2"
+            >Dress Code</span
+          >
+          <p
+            class="font-elegante text-2xl text-gray-800 tracking-widest uppercase"
+          >
+            Formal
+          </p>
+          <div class="flex gap-2 mt-3 opacity-60 text-[#E63946]">
+            <svg
+              width="20"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="currentColor"
+              stroke-width="1.5"
+              ><path d="M6 3h12l2 6-8 12-8-12 2-6z"></path></svg
+            >
+            <span class="text-sm italic">Traje o Vestido de Gala</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-sway {
+    animation: sway 6s ease-in-out infinite;
+  }
+  .animate-sway-delayed {
+    animation: sway 7s ease-in-out 1s infinite reverse;
+  }
+  @keyframes sway {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-10px) rotate(calc(var(--tw-rotate, 0deg) + 5deg));
+    }
+  }
+</style>
+
+<script>
+  function initScrollReveal() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.1 },
+    );
+
+    document
+      .querySelectorAll(".scroll-reveal")
+      .forEach((el) => observer.observe(el));
+  }
+  document.addEventListener("DOMContentLoaded", initScrollReveal);
+</script>

@@ -1,0 +1,45 @@
+---
+import Banner from "../components/Banner.astro";
+import Cronometro from "../components/Cronometro.astro";
+import PadresPadrinos from "../components/PadresPadrinos.astro";
+import Ubicaciones from "../components/Ubicaciones.astro";
+import Contactos from "../components/Contactos.astro";
+import BabyGallery from "../components/BabyGallery.astro";
+import Confirmacion from "../components/Confirmacion.astro";
+
+import Layout from "../layouts/Layout.astro";
+import "../styles/global.css";
+
+// Welcome to Astro! Wondering what to do next? Check out the Astro documentation at https://docs.astro.build
+// Don't want to use any of this? Delete everything in this file, the `assets`, `components`, and `layouts` directories, and start fresh.
+---
+
+<Layout>
+  <main>
+    <div class="bg-custom-gradient"></div>
+    <Banner />
+    <Cronometro />
+    <PadresPadrinos />
+    <Ubicaciones />
+    <Contactos />
+    <BabyGallery />
+    <Confirmacion />
+  </main>
+</Layout>
+
+<style>
+  /* 🟢 DEGRADADO PURO CSS */
+  .bg-custom-gradient {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background: radial-gradient(
+      ellipse at bottom left,
+      #202020 0%,
+      #030d2c 40%,
+      #000000 100%
+    );
+  }
+</style>

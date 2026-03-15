@@ -1,0 +1,214 @@
+---
+// src/components/Confirmacion.astro
+---
+
+<section
+  class="relative w-full py-16 flex justify-center items-center bg-gray-50 overflow-hidden px-4 md:px-8"
+>
+  {/* 🟢 CONTENEDOR PRINCIPAL */}
+  <div
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-0"
+  >
+    {/* 🟢 COLUMNA DE LA IMAGEN (Maya) */}
+    <div
+      class="w-full md:w-1/2 relative h-[55dvh] md:h-auto overflow-hidden group rounded-3xl md:rounded-l-3xl md:rounded-r-none shadow-xl md:shadow-none"
+    >
+      <img
+        src="/img/02.jpg"
+        alt="Maya Quinceañera"
+        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div class="absolute inset-0 bg-black/10"></div>
+    </div>
+
+    {/* 🟢 COLUMNA DEL FORMULARIO (Hoja) */}
+    <div
+      class="w-full md:w-1/2 relative px-6 py-12 md:p-16 flex flex-col justify-center items-center bg-[url('/img/hoja.jpg')] bg-repeat bg-cover bg-center rounded-3xl md:rounded-r-3xl md:rounded-l-none shadow-lg md:shadow-none"
+    >
+      {/* Capa superpuesta blanca */}
+      <div
+        class="absolute inset-0 bg-white/60 backdrop-blur-[1px] rounded-3xl md:rounded-r-3xl md:rounded-l-none"
+      >
+      </div>
+
+      {/* 🟢 DECORACIÓN FLORAL */}
+      <img
+        src="/img/rosa.png"
+        alt=""
+        class="absolute top-4 right-4 w-12 md:w-16 opacity-40 rotate-15 animate-sway"
+      />
+      <img
+        src="/img/lirio.png"
+        alt=""
+        class="absolute bottom-4 left-4 w-14 md:w-20 opacity-40 -rotate-12 animate-sway-delayed"
+      />
+
+      <div class="relative z-10 w-full flex flex-col items-center">
+        <div class="scroll-reveal text-center mb-8">
+          <h3
+            class="font-script text-5xl md:text-6xl text-[#E63946] mb-2 drop-shadow-sm"
+          >
+            Confirmación
+          </h3>
+          <p
+            class="font-limpia text-gray-600 text-[10px] md:text-xs tracking-[0.3em] uppercase"
+          >
+            ¿Nos acompañas en este día?
+          </p>
+        </div>
+
+        {/* 🟢 FORMULARIO RSVP */}
+        <form id="rsvp-form" class="w-full max-w-sm space-y-5 scroll-reveal">
+          <div class="flex flex-col items-start">
+            <label
+              class="font-elegante text-xs text-gray-500 uppercase tracking-widest mb-2 ml-1"
+              >Nombre Completo</label
+            >
+            <input
+              type="text"
+              name="from_name"
+              required
+              class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:border-[#E63946] focus:ring-1 focus:ring-[#E63946] outline-none transition-all font-elegante"
+              placeholder="Tu nombre y apellido"
+            />
+          </div>
+
+          <div class="flex flex-col items-start">
+            <label
+              class="font-elegante text-xs text-gray-500 uppercase tracking-widest mb-2 ml-1"
+              >¿Asistirás?</label
+            >
+            <select
+              name="attendance"
+              required
+              class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:border-[#E63946] outline-none transition-all font-elegante appearance-none"
+            >
+              <option value="Si, asistiré">Sí, asistiré con gusto</option>
+              <option value="No podré asistir"
+                >Lo siento, no podré asistir</option
+              >
+            </select>
+          </div>
+
+          <div class="flex flex-col items-start">
+            <label
+              class="font-elegante text-xs text-gray-500 uppercase tracking-widest mb-2 ml-1"
+              >Cantidad de Personas</label
+            >
+            <input
+              type="number"
+              name="guests"
+              min="1"
+              max="10"
+              required
+              class="w-full px-4 py-3 bg-white/50 border border-gray-200 rounded-xl focus:border-[#E63946] outline-none transition-all font-elegante"
+              placeholder="Ej. 2"
+            />
+          </div>
+
+          <button
+            type="submit"
+            id="submit-btn"
+            class="w-full py-4 bg-[#E63946] text-white font-limpia tracking-[0.3em] uppercase text-sm rounded-xl shadow-lg hover:bg-black transition-all duration-500 active:scale-95"
+          >
+            Enviar Confirmación
+          </button>
+
+          <p
+            id="form-status"
+            class="text-[10px] font-elegante uppercase tracking-widest mt-4 opacity-0 transition-opacity duration-500 text-center w-full"
+          >
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .animate-sway {
+    animation: sway 6s ease-in-out infinite;
+  }
+  .animate-sway-delayed {
+    animation: sway 7s ease-in-out 1s infinite reverse;
+  }
+  @keyframes sway {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-10px) rotate(calc(var(--tw-rotate, 0deg) + 5deg));
+    }
+  }
+</style>
+
+{/* 🟢 INTEGRACIÓN EMAILJS */}
+<script
+  type="text/javascript"
+  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
+></script>
+
+<script>
+  // Inicializa con tu PUBLIC KEY de EmailJS
+  // @ts-ignore
+  emailjs.init("TU_PUBLIC_KEY");
+
+  const btn = document.getElementById("submit-btn") as HTMLButtonElement;
+  const form = document.getElementById("rsvp-form") as HTMLFormElement;
+  const status = document.getElementById("form-status");
+
+  form?.addEventListener("submit", function (event) {
+    event.preventDefault();
+
+    btn.innerText = "ENVIANDO...";
+    btn.disabled = true;
+
+    const serviceID = "TU_SERVICE_ID";
+    const templateID = "TU_TEMPLATE_ID";
+
+    // @ts-ignore
+    emailjs.sendForm(serviceID, templateID, this).then(
+      () => {
+        btn.innerText = "¡ENVIADO!";
+        if (status) {
+          status.innerText = "¡Gracias! Tu respuesta ha sido enviada.";
+          status.classList.add("text-green-600", "opacity-100");
+        }
+        form.reset();
+      },
+      (err: unknown) => {
+        btn.innerText = "ERROR";
+        btn.disabled = false;
+        if (status) {
+          status.innerText = "Hubo un error. Intenta de nuevo.";
+          status.classList.add("text-red-600", "opacity-100");
+        }
+        console.error(JSON.stringify(err));
+      },
+    );
+  });
+
+  // Animación Scroll
+  const observer = new IntersectionObserver(
+    (entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) entry.target.classList.add("active");
+      });
+    },
+    { threshold: 0.1 },
+  );
+
+  document
+    .querySelectorAll(".scroll-reveal")
+    .forEach((el) => observer.observe(el));
+</script>

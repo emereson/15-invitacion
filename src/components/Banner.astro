@@ -1,0 +1,355 @@
+---
+// src/components/Banner.astro
+
+// 🟢 COORDENADAS DEL CORAZÓN (22 Rosas)
+const flowerPoints = [
+  { x: 50, y: 95, delay: 0.2, rot: 15 },
+  { x: 38, y: 86, delay: 0.3, rot: -20 },
+  { x: 62, y: 86, delay: 0.3, rot: 45 },
+  { x: 26, y: 75, delay: 0.4, rot: 10 },
+  { x: 74, y: 75, delay: 0.4, rot: -30 },
+  { x: 15, y: 62, delay: 0.5, rot: 60 },
+  { x: 85, y: 62, delay: 0.5, rot: -15 },
+  { x: 7, y: 48, delay: 0.6, rot: -45 },
+  { x: 93, y: 48, delay: 0.6, rot: 25 },
+  { x: 2, y: 32, delay: 0.7, rot: 80 },
+  { x: 98, y: 32, delay: 0.7, rot: -60 },
+  { x: 5, y: 16, delay: 0.8, rot: 15 },
+  { x: 95, y: 16, delay: 0.8, rot: 90 },
+  { x: 15, y: 4, delay: 0.9, rot: -10 },
+  { x: 85, y: 4, delay: 0.9, rot: -75 },
+  { x: 28, y: -2, delay: 1.0, rot: 35 },
+  { x: 72, y: -2, delay: 1.0, rot: 120 },
+  { x: 40, y: 5, delay: 1.1, rot: -25 },
+  { x: 60, y: 5, delay: 1.1, rot: 50 },
+  { x: 50, y: 18, delay: 1.2, rot: 0 },
+];
+---
+
+<section
+  class="sticky top-0 w-full h-dvh flex flex-col items-center justify-center overflow-hidden"
+>
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('/img/brillos.gif')] bg-repeat bg-auto bg-center"
+  >
+  </div>
+  <div
+    class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none"
+  >
+    <div class="w-[80dvw] h-[80dvw] bg-[#E63946] rounded-full blur-[150px]">
+    </div>
+  </div>
+
+  {/* 🟢 MARIPOSAS ALEATORIAS QUE RECORREN TODA LA PANTALLA */}
+  <div class="absolute inset-0 z-35 pointer-events-none overflow-hidden">
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-6 md:w-8 absolute opacity-90 animate-wander-1"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-4 md:w-6 absolute opacity-70 animate-wander-2"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-8 md:w-10 absolute opacity-90 animate-wander-3"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-5 md:w-7 absolute opacity-80 animate-wander-4"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-6 md:w-9 absolute opacity-90 animate-wander-1 delay-2000"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt="Mariposa"
+      class="w-4 md:w-5 absolute opacity-70 animate-wander-2 delay-3500"
+    />
+  </div>
+
+  {
+    /* 🟢 CONTENEDOR MAESTRO: Mantiene unidos el corazón y el texto en la misma proporción */
+  }
+  <div class="relative z-10 w-[95dvw] max-w-162.5 aspect-square">
+    {/* LATIDO DEL CORAZÓN (Foto y Rosas) */}
+    <div class="absolute inset-0 animate-heartbeat pointer-events-none">
+      {/* LA FOTO DE MAYA */}
+      <div class="absolute inset-0 flex items-center justify-center p-8">
+        <img
+          src="/img/07.jpg"
+          alt="Maya"
+          class="w-full h-full object-cover rounded-full opacity-0 animate-fade-in-slow"
+          style="mask-image: radial-gradient(circle, black 40%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);"
+        />
+      </div>
+
+      {/* GENERADOR DEL CORAZÓN */}
+      {
+        flowerPoints.map((p) => (
+          <div
+            class="absolute w-14 md:w-24 aspect-square drop-shadow-2xl z-20"
+            style={`left: ${p.x}%; top: ${p.y}%; transform: translate(-50%, -50%) rotate(${p.rot}deg);`}
+          >
+            <img
+              src="/img/rosa.png"
+              alt="Rosa"
+              class="w-full h-full object-contain opacity-0 animate-bloom"
+              style={`animation-delay: ${p.delay}s;`}
+            />
+          </div>
+        ))
+      }
+    </div>
+
+    {/* 🟢 TEXTO CENTRALIZADO EXCLUSIVAMENTE AL CORAZÓN */}
+    <div
+      class="absolute inset-0 z-40 flex flex-col items-center justify-end text-center pb-[30%] md:pb-[35%] pointer-events-none"
+    >
+      <h1
+        class="font-script text-6xl md:text-[7rem] text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] leading-none animate-fade-in-up delay-1700 py-1"
+      >
+        Mis 15 Años
+      </h1>
+
+      <h2
+        class="font-elegante italic text-4xl md:text-5xl text-white font-bold mt-1 tracking-wide animate-fade-in-up delay-1900 drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]"
+      >
+        Maya
+      </h2>
+
+      <div
+        class="mt-2 md:mt-4 animate-fade-in-up delay-2100 text-gray-400 drop-shadow-lg"
+      >
+        <svg
+          width="20"
+          height="8"
+          viewBox="0 0 60 15"
+          fill="currentColor"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path d="M25 7.5L30 2L35 7.5L30 13L25 7.5Z"></path>
+          <line
+            x1="0"
+            y1="7.5"
+            x2="20"
+            y2="7.5"
+            stroke="currentColor"
+            stroke-width="2"></line>
+          <line
+            x1="40"
+            y1="7.5"
+            x2="60"
+            y2="7.5"
+            stroke="currentColor"
+            stroke-width="2"></line>
+        </svg>
+      </div>
+
+      <div
+        class="font-limpia mt-2 px-6 py-1 border-y border-gray-600 text-gray-200 text-sm md:text-lg tracking-[0.4em] font-medium animate-fade-in-up delay-2100 shadow-sm drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-full pointer-events-auto"
+      >
+        14 . 08 . 2026
+      </div>
+    </div>
+  </div>
+
+  {/* 3. FLECHA DE SCROLL */}
+  <div
+    class="absolute bottom-4 md:bottom-8 z-10 flex flex-col items-center opacity-80 animate-fade-in-up delay-2500"
+  >
+    <span
+      class="font-limpia text-gray-500 text-[9px] md:text-xs tracking-widest uppercase mb-1 animate-pulse"
+    >
+      Desliza
+    </span>
+    <div class="animate-bounce text-[#E63946]">
+      <svg
+        class="w-5 h-5 md:w-6 md:h-6 drop-shadow-[0_0_8px_rgba(230,57,70,0.6)]"
+        fill="none"
+        stroke="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path
+          stroke-linecap="round"
+          stroke-linejoin="round"
+          stroke-width="2"
+          d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+      </svg>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 🟢 DEGRADADO PURO CSS */
+  .bg-custom-gradient {
+    background: radial-gradient(
+      ellipse at bottom left,
+      #14083c 0%,
+      #030d2c 40%,
+      #000000 100%
+    );
+  }
+
+  /* --- TEXTOS E IMAGEN CENTRAL --- */
+  .animate-fade-in-slow {
+    opacity: 0;
+    animation: fadeInSlow 2s ease-in-out 0.5s forwards;
+  }
+  @keyframes fadeInSlow {
+    0% {
+      opacity: 0;
+      transform: scale(0.95);
+    }
+    100% {
+      opacity: 0.7;
+      transform: scale(1);
+    }
+  }
+
+  .animate-fade-in-up {
+    opacity: 0;
+    animation: fadeInUp 1s ease-out forwards;
+  }
+  @keyframes fadeInUp {
+    0% {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    100% {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  /* 🟢 MAGIA 1: ANIMACIÓN "BLOOM" PARA QUE LAS FLORES CREZCAN */
+  .animate-bloom {
+    animation: bloom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
+  }
+  @keyframes bloom {
+    0% {
+      opacity: 0;
+      transform: scale(0);
+    }
+    100% {
+      opacity: 1;
+      transform: scale(1);
+    }
+  }
+
+  /* 🟢 MAGIA NUEVA: LATIDO DEL CORAZÓN (Afecta imagen y rosas) */
+  .animate-heartbeat {
+    animation: heartbeat 3s ease-in-out 2.5s infinite;
+  }
+  @keyframes heartbeat {
+    0%,
+    100% {
+      transform: scale(1);
+    }
+    50% {
+      transform: scale(1.04);
+    }
+  }
+
+  /* 🟢 MAGIA 2: ANIMACIONES DE MARIPOSAS ALEATORIAS POR TODA LA PANTALLA */
+  .animate-wander-1 {
+    animation: wander1 25s linear infinite;
+  }
+  @keyframes wander1 {
+    0% {
+      transform: translate(-10dvw, 10dvh) rotate(0deg);
+    }
+    25% {
+      transform: translate(110dvw, 40dvh) rotate(20deg);
+    }
+    50% {
+      transform: translate(50dvw, 90dvh) rotate(-10deg);
+    }
+    75% {
+      transform: translate(-10dvw, 60dvh) rotate(10deg);
+    }
+    100% {
+      transform: translate(-10dvw, 10dvh) rotate(0deg);
+    }
+  }
+
+  .animate-wander-2 {
+    animation: wander2 35s linear infinite;
+  }
+  @keyframes wander2 {
+    0% {
+      transform: translate(110dvw, 80dvh) rotate(0deg);
+    }
+    33% {
+      transform: translate(20dvw, 20dvh) rotate(-15deg);
+    }
+    66% {
+      transform: translate(80dvw, 10dvh) rotate(15deg);
+    }
+    100% {
+      transform: translate(110dvw, 80dvh) rotate(0deg);
+    }
+  }
+
+  .animate-wander-3 {
+    animation: wander3 20s ease-in-out infinite;
+  }
+  @keyframes wander3 {
+    0% {
+      transform: translate(50dvw, -10dvh) rotate(0deg);
+    }
+    25% {
+      transform: translate(10dvw, 50dvh) rotate(-30deg);
+    }
+    50% {
+      transform: translate(90dvw, 50dvh) rotate(30deg);
+    }
+    75% {
+      transform: translate(50dvw, 110dvh) rotate(0deg);
+    }
+    100% {
+      transform: translate(50dvw, -10dvh) rotate(0deg);
+    }
+  }
+
+  .animate-wander-4 {
+    animation: wander4 40s linear infinite;
+  }
+  @keyframes wander4 {
+    0% {
+      transform: translate(10dvw, 90dvh) rotate(0deg);
+    }
+    50% {
+      transform: translate(20dvw, 80dvh) rotate(10deg);
+    }
+    100% {
+      transform: translate(10dvw, 90dvh) rotate(0deg);
+    }
+  }
+
+  /* Retrasos globales */
+  .delay-1700 {
+    animation-delay: 1.7s;
+  }
+  .delay-1900 {
+    animation-delay: 1.9s;
+  }
+  .delay-2100 {
+    animation-delay: 2.1s;
+  }
+  .delay-2500 {
+    animation-delay: 2.5s;
+  }
+  .delay-2000 {
+    animation-delay: 2s;
+  }
+  .delay-3500 {
+    animation-delay: 3.5s;
+  }
+</style>

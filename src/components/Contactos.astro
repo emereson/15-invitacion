@@ -1,0 +1,240 @@
+---
+// src/components/Contactos.astro
+---
+
+<section
+  class="sticky top-0 w-full h-dvh flex flex-col items-center justify-center overflow-hidden bg-black"
+>
+  {/* 🟢 IMAGEN DE FONDO FULL SCREEN */}
+  <img
+    class="absolute top-0 left-0 w-full h-full object-cover object-center opacity-60"
+    src="/img/04.jpg"
+    alt="Maya Quinceañera"
+  />
+
+  {/* 🟢 CAPA DE BRILLOS */}
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('/img/brillos.gif')] bg-repeat bg-auto bg-center pointer-events-none"
+  >
+  </div>
+
+  {/* 🟢 MARIPOSAS ALEATORIAS (Efecto mágico) */}
+  <div class="absolute inset-0 z-20 pointer-events-none">
+    <img
+      src="/img/mariposa.gif"
+      alt=""
+      class="w-8 absolute opacity-90 animate-wander-1"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt=""
+      class="w-6 absolute opacity-70 animate-wander-2"
+    />
+    <img
+      src="/img/mariposa.gif"
+      alt=""
+      class="w-10 absolute opacity-80 animate-wander-3"
+    />
+  </div>
+
+  {/* 🟢 CONTENIDO CENTRAL (TARJETA DE CONTACTO) */}
+  <div
+    class="relative z-30 w-[90%] max-w-md p-8 md:p-12 backdrop-blur-md bg-white/10 border border-white/20 rounded-3xl shadow-2xl flex flex-col items-center text-center scroll-reveal"
+  >
+    <h3 class="font-script text-5xl md:text-6xl text-white mb-6 drop-shadow-lg">
+      Contactos
+    </h3>
+
+    <p
+      class="font-limpia text-gray-200 text-xs tracking-[0.3em] uppercase mb-10 opacity-80"
+    >
+      Para cualquier duda o información adicional:
+    </p>
+
+    <div class="flex flex-col gap-6 w-full">
+      {/* CONTACTO 1: YAYI */}
+      <a
+        href="https://wa.me/17183449837"
+        target="_blank"
+        class="group flex items-center justify-between bg-white/5 hover:bg-[#E63946] border border-white/10 p-5 rounded-2xl transition-all duration-700 hover:scale-105 shadow-xl"
+      >
+        <div class="flex flex-col items-start">
+          <span class="font-elegante text-white text-xl tracking-widest"
+            >Yayi</span
+          >
+          <span
+            class="text-white/60 text-sm group-hover:text-white/90 transition-colors"
+            >(718) 344-9837</span
+          >
+        </div>
+        <div
+          class="bg-white/20 group-hover:bg-white/40 p-3 rounded-full transition-transform group-hover:rotate-12"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            ><path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+            ></path></svg
+          >
+        </div>
+      </a>
+
+      {/* CONTACTO 2: CARLOS */}
+      <a
+        href="https://wa.me/17187574075"
+        target="_blank"
+        class="group flex items-center justify-between bg-white/5 hover:bg-[#E63946] border border-white/10 p-5 rounded-2xl transition-all duration-700 hover:scale-105 shadow-xl"
+      >
+        <div class="flex flex-col items-start">
+          <span class="font-elegante text-white text-xl tracking-widest"
+            >Carlos</span
+          >
+          <span
+            class="text-white/60 text-sm group-hover:text-white/90 transition-colors"
+            >(718) 757-4075</span
+          >
+        </div>
+        <div
+          class="bg-white/20 group-hover:bg-white/40 p-3 rounded-full transition-transform group-hover:rotate-12"
+        >
+          <svg
+            width="22"
+            height="22"
+            viewBox="0 0 24 24"
+            fill="none"
+            stroke="white"
+            stroke-width="2"
+            ><path
+              d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"
+            ></path></svg
+          >
+        </div>
+      </a>
+    </div>
+  </div>
+
+  <img
+    src="/img/rosa.png"
+    alt=""
+    class="absolute bottom-[10%] left-[5%] w-24 opacity-60 rotate-12 animate-float-flower"
+  />
+  <img
+    src="/img/lirio.png"
+    alt=""
+    class="absolute top-[10%] right-[5%] w-28 opacity-40 -rotate-12 animate-float-flower-delayed"
+  />
+  <img
+    src="/img/rosa.png"
+    alt=""
+    class="absolute top-[20%] left-[8%] w-16 opacity-30 rotate-45 animate-float-flower-delayed"
+  />
+  <img
+    src="/img/lirio.png"
+    alt=""
+    class="absolute bottom-[15%] right-[10%] w-20 opacity-40 rotate-160 animate-float-flower"
+  />
+</section>
+
+<style>
+  /* 🟢 REVELACIÓN DE TARJETA */
+  .scroll-reveal {
+    opacity: 0;
+    transform: scale(0.9) translateY(20px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+  }
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: scale(1) translateY(0);
+  }
+
+  /* 🟢 ANIMACIÓN FLOTANTE PARA FLORES */
+  .animate-float-flower {
+    animation: floatFlower 8s ease-in-out infinite;
+  }
+  .animate-float-flower-delayed {
+    animation: floatFlower 10s ease-in-out 1s infinite reverse;
+  }
+
+  @keyframes floatFlower {
+    0%,
+    100% {
+      transform: translate(0, 0) rotate(var(--tw-rotate, 0deg));
+      opacity: 0.4;
+    }
+    50% {
+      transform: translate(15px, -25px)
+        rotate(calc(var(--tw-rotate, 0deg) + 15deg));
+      opacity: 0.7;
+    }
+  }
+
+  /* 🟢 MARIPOSAS WANDER */
+  .animate-wander-1 {
+    animation: wander1 20s linear infinite;
+  }
+  .animate-wander-2 {
+    animation: wander2 25s linear infinite;
+  }
+  .animate-wander-3 {
+    animation: wander3 30s linear infinite;
+  }
+
+  @keyframes wander1 {
+    0% {
+      transform: translate(-10vw, 20vh) rotate(0deg);
+    }
+    50% {
+      transform: translate(110vw, 60vh) rotate(180deg);
+    }
+    100% {
+      transform: translate(-10vw, 20vh) rotate(360deg);
+    }
+  }
+  @keyframes wander2 {
+    0% {
+      transform: translate(110vw, 10vh) rotate(0deg);
+    }
+    50% {
+      transform: translate(-10vw, 80vh) rotate(-180deg);
+    }
+    100% {
+      transform: translate(110vw, 10vh) rotate(-360deg);
+    }
+  }
+  @keyframes wander3 {
+    0% {
+      transform: translate(50vw, 110vh) rotate(0deg);
+    }
+    50% {
+      transform: translate(50vw, -10vh) rotate(180deg);
+    }
+    100% {
+      transform: translate(50vw, 110vh) rotate(360deg);
+    }
+  }
+</style>
+
+<script>
+  function initContactReveal() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+          }
+        });
+      },
+      { threshold: 0.3 },
+    );
+
+    document
+      .querySelectorAll(".scroll-reveal")
+      .forEach((el) => observer.observe(el));
+  }
+  document.addEventListener("DOMContentLoaded", initContactReveal);
+</script>

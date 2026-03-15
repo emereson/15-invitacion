@@ -1,0 +1,201 @@
+---
+// src/components/PadresPadrinos.astro
+---
+
+<section
+  class="relative w-full py-16 flex justify-center items-center bg-gray-50 overflow-hidden px-4 md:px-8"
+>
+  {/* 🟢 CONTENEDOR PRINCIPAL CON GAP EN MÓVIL */}
+  {/* Agregamos gap-10 en móvil para separar la foto de la tarjeta de texto */}
+  <div
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-10 md:gap-0"
+  >
+    {/* 🟢 COLUMNA DE LA IMAGEN (Redondeada en móvil para que combine) */}
+    <div
+      class="w-full md:w-1/2 relative h-[55dvh] md:h-auto overflow-hidden group rounded-3xl md:rounded-l-3xl md:rounded-r-none shadow-xl md:shadow-none"
+    >
+      <img
+        src="/img/03.jpg"
+        alt="Maya"
+        class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
+      />
+      <div
+        class="absolute inset-0 shadow-[inset_0_-20px_20px_-20px_rgba(0,0,0,0.3)] md:shadow-none"
+      >
+      </div>
+    </div>
+
+    {/* 🟢 COLUMNA DE TEXTO (Convertida en tarjeta en móvil) */}
+    {
+      /* Agregamos rounded-3xl y shadow-lg en móvil para que sea una tarjeta separada */
+    }
+    <div
+      class="w-full md:w-1/2 relative px-6 py-16 md:p-16 flex flex-col justify-center items-center text-center bg-[url('/img/hoja.jpg')] bg-repeat bg-cover bg-center rounded-3xl md:rounded-r-3xl md:rounded-l-none shadow-sm md:shadow-none"
+    >
+      {/* Capa superpuesta blanca */}
+      <div
+        class="absolute inset-0 bg-white/60 backdrop-blur-[1px] rounded-3xl md:rounded-r-3xl md:rounded-l-none"
+      >
+      </div>
+
+      {/* 🟢 DECORACIÓN FLORAL */}
+      <img
+        src="/img/rosa.png"
+        alt=""
+        class="absolute top-4 left-4 w-12 md:w-16 opacity-40 rotate-[-30deg] animate-sway"
+      />
+      <img
+        src="/img/rosa.png"
+        alt=""
+        class="absolute top-1/2 -right-6 w-10 md:w-14 opacity-30 rotate-45 animate-sway-delayed"
+      />
+      <img
+        src="/img/rosa.png"
+        alt=""
+        class="absolute bottom-4 left-10 w-10 md:w-14 opacity-40 rotate-120 animate-sway-delayed"
+      />
+      <img
+        src="/img/lirio.png"
+        alt=""
+        class="absolute top-10 right-4 w-14 md:w-20 opacity-50 rotate-15 animate-sway"
+      />
+      <img
+        src="/img/lirio.png"
+        alt=""
+        class="absolute bottom-6 -left-4 w-16 md:w-24 opacity-50 -rotate-12 animate-sway"
+      />
+      <img
+        src="/img/lirio.png"
+        alt=""
+        class="absolute bottom-1/2 -left-8 w-12 md:w-16 opacity-30 rotate-90 animate-sway-delayed"
+      />
+
+      <div class="relative z-10 w-full flex flex-col items-center">
+        {/* BLOQUE PADRES */}
+        <div class="scroll-reveal flex flex-col items-center">
+          <h3
+            class="font-script text-5xl md:text-6xl text-[#E63946] mb-2 drop-shadow-sm"
+          >
+            Mis Padres
+          </h3>
+          <p
+            class="font-elegante text-2xl md:text-3xl text-gray-800 font-medium tracking-wide mt-4"
+          >
+            Carlos Ruiz
+          </p>
+          <p
+            class="font-elegante text-lg md:text-xl text-[#E63946] italic my-1"
+          >
+            &
+          </p>
+          <p
+            class="font-elegante text-2xl md:text-3xl text-gray-800 font-medium tracking-wide"
+          >
+            Graciana Castellanos
+          </p>
+        </div>
+
+        {/* SEPARADOR ELEGANTE */}
+        <div class="w-full flex justify-center my-8 scroll-reveal">
+          <svg
+            width="60"
+            height="15"
+            viewBox="0 0 60 15"
+            fill="none"
+            stroke="#E63946"
+            stroke-width="1.5"
+            class="opacity-50"
+          >
+            <path
+              d="M30 2L35 7.5L30 13L25 7.5Z"
+              fill="#E63946"
+              fill-opacity="0.2"></path>
+            <line x1="0" y1="7.5" x2="20" y2="7.5"></line>
+            <line x1="40" y1="7.5" x2="60" y2="7.5"></line>
+          </svg>
+        </div>
+
+        {/* BLOQUE PADRINOS */}
+        <div class="scroll-reveal flex flex-col items-center">
+          <h3
+            class="font-script text-5xl md:text-6xl text-[#E63946] mb-2 drop-shadow-sm"
+          >
+            Mis Padrinos
+          </h3>
+          <p
+            class="font-elegante text-2xl md:text-3xl text-gray-800 font-medium tracking-wide mt-4"
+          >
+            Mario Baez
+          </p>
+          <p
+            class="font-elegante text-lg md:text-xl text-[#E63946] italic my-1"
+          >
+            &
+          </p>
+          <p
+            class="font-elegante text-2xl md:text-3xl text-gray-800 font-medium tracking-wide"
+          >
+            Jessica Baez-Restrepo
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 🟢 ANIMACIONES DE REVELACIÓN */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(40px);
+    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    will-change: transform, opacity;
+  }
+
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* 🟢 BALANCEO DE FLORES */
+  .animate-sway {
+    animation: sway 6s ease-in-out infinite;
+  }
+  .animate-sway-delayed {
+    animation: sway 7s ease-in-out 1s infinite reverse;
+  }
+
+  @keyframes sway {
+    0%,
+    100% {
+      transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+    }
+    50% {
+      transform: translateY(-10px) rotate(calc(var(--tw-rotate, 0deg) + 5deg));
+    }
+  }
+</style>
+
+<script>
+  function initScrollReveal() {
+    const observerOptions = {
+      root: null,
+      threshold: 0.1,
+      rootMargin: "0px 0px -50px 0px",
+    };
+
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add("active");
+          observer.unobserve(entry.target);
+        }
+      });
+    }, observerOptions);
+
+    const animatedElements = document.querySelectorAll(".scroll-reveal");
+    animatedElements.forEach((el) => observer.observe(el));
+  }
+
+  document.addEventListener("DOMContentLoaded", initScrollReveal);
+</script>

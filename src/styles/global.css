@@ -1,0 +1,7 @@
+@import "tailwindcss";
+
+@theme {
+  --font-script: "Alex Brush", cursive;
+  --font-elegante: "Playfair Display", serif;
+  --font-limpia: "Raleway", sans-serif;
+}
