@@ -3,115 +3,167 @@
 ---
 
 <section
-  class="relative w-full py-16 flex justify-center items-center bg-gray-50 overflow-hidden px-4 md:px-8 -mt-1"
+  class="relative w-full py-16 flex justify-center items-center bg-slate-50 px-4 md:px-8"
 >
+  {/* 🟢 CONTENEDOR PRINCIPAL */}
   {
-    /* 🟢 CONTENEDOR PRINCIPAL - Inverso (flex-col-reverse en móvil, md:flex-row-reverse en escritorio) */
+    /* En móvil tiene gap-10. En desktop (md) le quitamos el gap y le damos una sombra global (md:shadow-2xl) para que parezcan unidos */
   }
   <div
-    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row-reverse gap-10 md:gap-0"
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row-reverse gap-10 md:gap-0 md:bg-white md:rounded-3xl md:shadow-2xl"
   >
-    {/* 🟢 COLUMNA DE LA IMAGEN (Derecha en escritorio) */}
+    {/* 🟢 TARJETA DE LA IMAGEN (Derecha en desktop) */}
+    {
+      /* En móvil: esquinas redondeadas completas y sombra. En desktop: quitamos la sombra, y quitamos el redondeo izquierdo (md:rounded-l-none) */
+    }
     <div
-      class="w-full md:w-1/2 relative h-[55dvh] md:h-auto overflow-hidden group rounded-3xl md:rounded-r-3xl md:rounded-l-none shadow-xl md:shadow-none"
+      class="w-full md:w-1/2 relative h-[45dvh] md:h-auto min-h-[600px] group overflow-hidden rounded-3xl shadow-xl md:shadow-none md:rounded-l-none md:rounded-r-3xl"
     >
       <img
         src="/img/05.webp"
-        alt="Evento"
+        alt="Lugar del evento"
         class="w-full h-full object-cover transition-transform duration-1000 group-hover:scale-105"
       />
-      <div class="absolute inset-0 bg-black/10"></div>
-    </div>
-
-    {/* 🟢 COLUMNA DE TEXTO (Izquierda en escritorio) */}
-    <div
-      class="w-full md:w-1/2 relative px-6 py-16 md:p-16 flex flex-col justify-center items-center text-center bg-[url('/img/hoja.webp')] bg-repeat bg-cover bg-center rounded-3xl md:rounded-l-3xl md:rounded-r-none shadow-lg md:shadow-none border-y md:border-y-0 md:border-l border-gray-100"
-    >
       <div
-        class="absolute inset-0 bg-white/60 backdrop-blur-[1px] rounded-3xl md:rounded-l-3xl md:rounded-r-none"
+        class="absolute inset-0 bg-black/15 transition-colors duration-500 group-hover:bg-black/0"
       >
       </div>
+    </div>
 
-      {/* 🟢 DECORACIÓN FLORAL INVERSA */}
+    {/* 🟢 TARJETA DE TEXTO CON HOJAS (Izquierda en desktop) */}
+    {
+      /* En móvil: esquinas redondeadas completas y sombra. En desktop: quitamos la sombra, y quitamos el redondeo derecho (md:rounded-r-none) */
+    }
+    <div
+      class="w-full md:w-1/2 relative px-6 py-16 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center bg-[url('/img/hoja.webp')] bg-repeat bg-cover bg-center rounded-3xl shadow-xl md:shadow-none md:rounded-r-none md:rounded-l-3xl overflow-hidden border-y md:border-y-0 border-slate-100"
+    >
+      {/* Capa de desenfoque */}
+      <div class="absolute inset-0 bg-white/80 backdrop-blur-[3px]"></div>
+
+      {/* 🟢 DECORACIÓN FLORAL ANIMADA */}
       <img
         src="/img/lirio.webp"
-        alt=""
-        class="absolute top-4 right-4 w-14 md:w-20 opacity-40 rotate-15 animate-sway"
+        alt="Decoración Lirio"
+        class="absolute top-6 right-6 w-16 md:w-20 opacity-40 rotate-[15deg] animate-sway pointer-events-none"
       />
       <img
         src="/img/rosa.webp"
-        alt=""
-        class="absolute bottom-10 left-4 w-12 md:w-16 opacity-40 -rotate-45 animate-sway-delayed"
+        alt="Decoración Rosa"
+        class="absolute bottom-10 left-6 w-14 md:w-16 opacity-40 -rotate-[45deg] animate-sway-delayed pointer-events-none"
       />
 
       <div class="relative z-10 w-full flex flex-col items-center">
-        {/* IGLESIA */}
-        <div class="scroll-reveal flex flex-col items-center mb-12">
-          <h3 class="font-script text-5xl md:text-6xl text-[#E63946] mb-4">
+        {/* ⛪ IGLESIA */}
+        <div class="scroll-reveal flex flex-col items-center mb-10">
+          <h3 class="font-script text-5xl md:text-6xl text-[#D4AF37] mb-3">
             Ceremonia Religiosa
           </h3>
           <p
-            class="font-elegante text-xl md:text-2xl text-gray-800 font-bold uppercase tracking-widest"
+            class="font-elegante text-xl md:text-2xl text-slate-600 font-bold uppercase tracking-widest mb-2"
           >
             San Phillip Neri Church
           </p>
-          <p class="font-elegante text-lg text-gray-600 mt-2">
-            3021 Grand Concourse, Bronx, NY 10468
-          </p>
+          <div
+            class="flex flex-col items-center space-y-1 text-slate-500 font-elegante"
+          >
+            <span class="text-lg font-medium text-[#D4AF37]">4:00 PM</span>
+            <span class="text-md">3021 Grand Concourse, Bronx, NY 10468</span>
+          </div>
           <a
             href="https://www.google.com/maps/search/?api=1&query=3021+Grand+Concourse+Bronx+NY+10468"
             target="_blank"
-            class="mt-4 px-6 py-2 border border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm"
+            class="mt-6 flex items-center gap-2 px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm group"
           >
+            <svg
+              class="w-4 h-4 transition-transform group-hover:-translate-y-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              ></path><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+            >
             VER MAPA
           </a>
         </div>
 
-        {/* SEPARADOR */}
-        <div class="w-24 h-px bg-[#E63946]/30 mb-12 scroll-reveal"></div>
+        {/* ➖ SEPARADOR */}
+        <div
+          class="w-16 h-[2px] bg-[#D4AF37]/40 mb-10 scroll-reveal rounded-full"
+        >
+        </div>
 
-        {/* LUGAR DE EVENTO */}
-        <div class="scroll-reveal flex flex-col items-center mb-12">
-          <h3 class="font-script text-5xl md:text-6xl text-[#E63946] mb-4">
+        {/* 🥂 LUGAR DE EVENTO */}
+        <div class="scroll-reveal flex flex-col items-center mb-10">
+          <h3 class="font-script text-5xl md:text-6xl text-[#D4AF37] mb-3">
             Recepción
           </h3>
           <p
-            class="font-elegante text-xl md:text-2xl text-gray-800 font-bold uppercase tracking-widest"
+            class="font-elegante text-xl md:text-2xl text-slate-600 font-bold uppercase tracking-widest mb-2"
           >
             Maestro's Caterers
           </p>
-          <p class="font-elegante text-lg text-gray-600 mt-2">
-            1703 Bronxdale Ave. Bronx, NY 10462
-          </p>
+          <div
+            class="flex flex-col items-center space-y-1 text-slate-500 font-elegante"
+          >
+            <span class="text-lg font-medium text-[#D4AF37]">7:30 PM</span>
+            <span class="text-md">1703 Bronxdale Ave. Bronx, NY 10462</span>
+          </div>
           <a
             href="https://www.google.com/maps/search/?api=1&query=1703+Bronxdale+Ave+Bronx+NY+10462"
             target="_blank"
-            class="mt-4 px-6 py-2 border border-[#E63946] text-[#E63946] hover:bg-[#E63946] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm"
+            class="mt-6 flex items-center gap-2 px-6 py-2.5 border border-[#D4AF37] text-[#D4AF37] hover:bg-[#D4AF37] hover:text-white transition-all duration-300 rounded-full font-elegante tracking-widest text-sm group"
           >
+            <svg
+              class="w-4 h-4 transition-transform group-hover:-translate-y-1"
+              fill="none"
+              stroke="currentColor"
+              viewBox="0 0 24 24"
+              xmlns="http://www.w3.org/2000/svg"
+              ><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"
+              ></path><path
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                stroke-width="2"
+                d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"></path></svg
+            >
             VER MAPA
           </a>
         </div>
 
-        {/* CÓDIGO DE VESTIMENTA */}
+        {/* 👔 CÓDIGO DE VESTIMENTA */}
         <div
-          class="scroll-reveal mt-4 p-6 bg-[#E63946]/5 rounded-2xl border border-[#E63946]/10 flex flex-col items-center"
+          class="scroll-reveal w-full max-w-sm mt-2 p-6 bg-linear-to-b from-[#D4AF37]/10 to-transparent rounded-2xl border border-[#D4AF37]/20 flex flex-col items-center shadow-sm"
         >
           <span
-            class="font-elegante text-xs tracking-[0.3em] text-gray-500 uppercase mb-2"
-            >Dress Code</span
+            class="font-elegante text-xs tracking-[0.3em] text-[#D4AF37] font-bold uppercase mb-2"
           >
+            Dress Code
+          </span>
           <p
-            class="font-elegante text-2xl text-gray-800 tracking-widest uppercase"
+            class="font-elegante text-2xl text-slate-700 tracking-widest uppercase mb-1"
           >
             Formal
           </p>
-          <div class="flex gap-2 mt-3 opacity-60 text-[#E63946]">
+          <div class="flex items-center gap-2 mt-2 text-slate-500">
             <svg
-              width="20"
-              height="20"
+              width="18"
+              height="18"
               viewBox="0 0 24 24"
               fill="none"
-              stroke="currentColor"
+              stroke="#D4AF37"
               stroke-width="1.5"
               ><path d="M6 3h12l2 6-8 12-8-12 2-6z"></path></svg
             >
@@ -126,32 +178,34 @@
 <style>
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px);
-    transition: all 1.2s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(25px);
+    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
   }
   .scroll-reveal.active {
     opacity: 1;
     transform: translateY(0);
   }
+
   .animate-sway {
     animation: sway 6s ease-in-out infinite;
   }
   .animate-sway-delayed {
     animation: sway 7s ease-in-out 1s infinite reverse;
   }
+
   @keyframes sway {
     0%,
     100% {
-      transform: translateY(0) rotate(var(--tw-rotate, 0deg));
+      transform: translateY(0) rotate(var(--tw-rotate));
     }
     50% {
-      transform: translateY(-10px) rotate(calc(var(--tw-rotate, 0deg) + 5deg));
+      transform: translateY(-12px) rotate(calc(var(--tw-rotate) + 8deg));
     }
   }
 </style>
 
 <script>
-  function initScrollReveal() {
+  const initObserver = () => {
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
@@ -161,12 +215,13 @@
           }
         });
       },
-      { threshold: 0.1 },
+      { threshold: 0.15, rootMargin: "0px 0px -50px 0px" },
     );
 
     document
       .querySelectorAll(".scroll-reveal")
       .forEach((el) => observer.observe(el));
-  }
-  document.addEventListener("DOMContentLoaded", initScrollReveal);
+  };
+
+  initObserver();
 </script>

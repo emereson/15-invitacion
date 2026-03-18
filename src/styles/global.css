@@ -5,3 +5,16 @@
   --font-elegante: "Playfair Display", serif;
   --font-limpia: "Raleway", sans-serif;
 }
+
+img.mariposa {
+  filter: hue-rotate(40deg) saturate(0.4) brightness(1);
+}
+
+.bg-blue-2 {
+  background: radial-gradient(
+    ellipse at bottom left,
+    #202020 0%,
+    #030d2c 40%,
+    #000000 100%
+  );
+}

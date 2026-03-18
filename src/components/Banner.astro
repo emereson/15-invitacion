@@ -1,47 +1,28 @@
 ---
 // src/components/Banner.astro
-
-// 🟢 COORDENADAS DEL CORAZÓN (22 Rosas)
-const flowerPoints = [
-  { x: 50, y: 95, delay: 0.2, rot: 15 },
-  { x: 38, y: 86, delay: 0.3, rot: -20 },
-  { x: 62, y: 86, delay: 0.3, rot: 45 },
-  { x: 26, y: 75, delay: 0.4, rot: 10 },
-  { x: 74, y: 75, delay: 0.4, rot: -30 },
-  { x: 15, y: 62, delay: 0.5, rot: 60 },
-  { x: 85, y: 62, delay: 0.5, rot: -15 },
-  { x: 7, y: 48, delay: 0.6, rot: -45 },
-  { x: 93, y: 48, delay: 0.6, rot: 25 },
-  { x: 2, y: 32, delay: 0.7, rot: 80 },
-  { x: 98, y: 32, delay: 0.7, rot: -60 },
-  { x: 5, y: 16, delay: 0.8, rot: 15 },
-  { x: 95, y: 16, delay: 0.8, rot: 90 },
-  { x: 15, y: 4, delay: 0.9, rot: -10 },
-  { x: 85, y: 4, delay: 0.9, rot: -75 },
-  { x: 28, y: -2, delay: 1.0, rot: 35 },
-  { x: 72, y: -2, delay: 1.0, rot: 120 },
-  { x: 40, y: 5, delay: 1.1, rot: -25 },
-  { x: 60, y: 5, delay: 1.1, rot: 50 },
-  { x: 50, y: 18, delay: 1.2, rot: 0 },
-];
 ---
 
 <section
-  class="sticky top-0 w-full h-dvh flex flex-col items-center justify-center overflow-hidden"
+  class="sticky top-0 w-full h-dvh flex flex-col items-center justify-center overflow-hidden bg-black"
 >
+  {/* 🟢 1. LA FOTO DE MAYA (Fondo de Pantalla Completa) */}
+  <img
+    src="/img/Principal.jpg"
+    alt="Maya"
+    class="absolute inset-0 w-full h-full object-cover object-[left_30%] opacity-0 animate-fade-in-slow z-0"
+  />
   <div
-    class="absolute top-0 left-0 w-full h-full opacity-20 bg-[url('/img/brillos.gif')] bg-repeat bg-auto bg-center"
+    class="absolute inset-0 bg-black/20 bg-linear-to-t from-black/80 via-black/20 to-transparent z-10 pointer-events-none"
   >
-  </div>
-  <div
-    class="absolute inset-0 flex items-center justify-center opacity-[0.03] pointer-events-none"
-  >
-    <div class="w-[80dvw] h-[80dvw] bg-[#E63946] rounded-full blur-[150px]">
-    </div>
   </div>
 
-  {/* 🟢 MARIPOSAS ALEATORIAS QUE RECORREN TODA LA PANTALLA */}
-  <div class="absolute inset-0 z-35 pointer-events-none overflow-hidden">
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-30 bg-[url('/img/brillos.gif')] bg-repeat bg-auto bg-center z-20 pointer-events-none mix-blend-screen"
+  >
+  </div>
+
+  {/* 🟢 4. MARIPOSAS ALEATORIAS QUE RECORREN TODA LA PANTALLA */}
+  <div class="absolute inset-0 z-30 pointer-events-none overflow-hidden">
     <img
       src="/img/mariposa.gif"
       alt="Mariposa"
@@ -75,103 +56,70 @@ const flowerPoints = [
   </div>
 
   {
-    /* 🟢 CONTENEDOR MAESTRO: Mantiene unidos el corazón y el texto en la misma proporción */
+    /* 🟢 5. TEXTO CENTRALIZADO Y EMPUJADO HACIA ABAJO (Para no tapar el rostro en la foto) */
   }
-  <div class="relative z-10 w-[95dvw] max-w-162.5 aspect-square">
-    {/* LATIDO DEL CORAZÓN (Foto y Rosas) */}
-    <div class="absolute inset-0 animate-heartbeat pointer-events-none">
-      {/* LA FOTO DE MAYA */}
-      <div class="absolute inset-0 flex items-center justify-center p-8">
-        <img
-          src="/img/07.webp"
-          alt="Maya"
-          class="w-full h-full object-cover rounded-full opacity-0 animate-fade-in-slow"
-          style="mask-image: radial-gradient(circle, black 40%, transparent 70%); -webkit-mask-image: radial-gradient(circle, black 40%, transparent 70%);"
-        />
-      </div>
+  <div
+    class="relative z-40 flex flex-col items-center justify-end w-full h-full pb-32 md:pb-40 text-center pointer-events-none"
+  >
+    <h1
+      class="font-script text-6xl md:text-[7rem] text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] leading-none animate-fade-in-up delay-1700 py-1"
+    >
+      Mis 15 Años
+    </h1>
 
-      {/* GENERADOR DEL CORAZÓN */}
-      {
-        flowerPoints.map((p) => (
-          <div
-            class="absolute w-14 md:w-24 aspect-square drop-shadow-2xl z-20"
-            style={`left: ${p.x}%; top: ${p.y}%; transform: translate(-50%, -50%) rotate(${p.rot}deg);`}
-          >
-            <img
-              src="/img/rosa.webp"
-              alt="Rosa"
-              class="w-full h-full object-contain opacity-0 animate-bloom"
-              style={`animation-delay: ${p.delay}s;`}
-            />
-          </div>
-        ))
-      }
+    <h2
+      class="font-elegante italic text-4xl md:text-5xl text-white font-bold mt-1 tracking-wide animate-fade-in-up delay-1900 drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]"
+    >
+      Maya
+    </h2>
+
+    <div
+      class="mt-2 md:mt-4 animate-fade-in-up delay-2100 text-gray-300 drop-shadow-lg"
+    >
+      <svg
+        width="20"
+        height="8"
+        viewBox="0 0 60 15"
+        fill="currentColor"
+        xmlns="http://www.w3.org/2000/svg"
+      >
+        <path d="M25 7.5L30 2L35 7.5L30 13L25 7.5Z"></path>
+        <line
+          x1="0"
+          y1="7.5"
+          x2="20"
+          y2="7.5"
+          stroke="currentColor"
+          stroke-width="2"></line>
+        <line
+          x1="40"
+          y1="7.5"
+          x2="60"
+          y2="7.5"
+          stroke="currentColor"
+          stroke-width="2"></line>
+      </svg>
     </div>
 
-    {/* 🟢 TEXTO CENTRALIZADO EXCLUSIVAMENTE AL CORAZÓN */}
     <div
-      class="absolute inset-0 z-40 flex flex-col items-center justify-end text-center pb-[30%] md:pb-[35%] pointer-events-none"
+      class="font-limpia mt-4 px-6 py-2 border-y border-gray-400/50 text-gray-100 text-sm md:text-lg tracking-[0.4em] font-medium animate-fade-in-up delay-2100 shadow-sm drop-shadow-lg bg-black/40 backdrop-blur-md rounded-full pointer-events-auto"
     >
-      <h1
-        class="font-script text-6xl md:text-[7rem] text-white drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)] leading-none animate-fade-in-up delay-1700 py-1"
-      >
-        Mis 15 Años
-      </h1>
-
-      <h2
-        class="font-elegante italic text-4xl md:text-5xl text-white font-bold mt-1 tracking-wide animate-fade-in-up delay-1900 drop-shadow-[0_4px_10px_rgba(0,0,0,0.9)]"
-      >
-        Maya
-      </h2>
-
-      <div
-        class="mt-2 md:mt-4 animate-fade-in-up delay-2100 text-gray-400 drop-shadow-lg"
-      >
-        <svg
-          width="20"
-          height="8"
-          viewBox="0 0 60 15"
-          fill="currentColor"
-          xmlns="http://www.w3.org/2000/svg"
-        >
-          <path d="M25 7.5L30 2L35 7.5L30 13L25 7.5Z"></path>
-          <line
-            x1="0"
-            y1="7.5"
-            x2="20"
-            y2="7.5"
-            stroke="currentColor"
-            stroke-width="2"></line>
-          <line
-            x1="40"
-            y1="7.5"
-            x2="60"
-            y2="7.5"
-            stroke="currentColor"
-            stroke-width="2"></line>
-        </svg>
-      </div>
-
-      <div
-        class="font-limpia mt-2 px-6 py-1 border-y border-gray-600 text-gray-200 text-sm md:text-lg tracking-[0.4em] font-medium animate-fade-in-up delay-2100 shadow-sm drop-shadow-lg bg-black/40 backdrop-blur-sm rounded-full pointer-events-auto"
-      >
-        14 . 08 . 2026
-      </div>
+      14 . 08 . 2026
     </div>
   </div>
 
-  {/* 3. FLECHA DE SCROLL */}
+  {/* 🟢 6. FLECHA DE SCROLL */}
   <div
-    class="absolute bottom-4 md:bottom-8 z-10 flex flex-col items-center opacity-80 animate-fade-in-up delay-2500"
+    class="absolute bottom-6 md:bottom-10 z-50 flex flex-col items-center opacity-80 animate-fade-in-up delay-2500"
   >
     <span
-      class="font-limpia text-gray-500 text-[9px] md:text-xs tracking-widest uppercase mb-1 animate-pulse"
+      class="font-limpia text-gray-300 text-[9px] md:text-xs tracking-widest uppercase mb-1 animate-pulse"
     >
       Desliza
     </span>
-    <div class="animate-bounce text-[#E63946]">
+    <div class="animate-bounce text-white">
       <svg
-        class="w-5 h-5 md:w-6 md:h-6 drop-shadow-[0_0_8px_rgba(230,57,70,0.6)]"
+        class="w-5 h-5 md:w-6 md:h-6 drop-shadow-[0_0_8px_rgba(255,255,255,0.6)]"
         fill="none"
         stroke="currentColor"
         viewBox="0 0 24 24"
@@ -187,16 +135,6 @@ const flowerPoints = [
 </section>
 
 <style>
-  /* 🟢 DEGRADADO PURO CSS */
-  .bg-custom-gradient {
-    background: radial-gradient(
-      ellipse at bottom left,
-      #14083c 0%,
-      #030d2c 40%,
-      #000000 100%
-    );
-  }
-
   /* --- TEXTOS E IMAGEN CENTRAL --- */
   .animate-fade-in-slow {
     opacity: 0;
@@ -205,10 +143,12 @@ const flowerPoints = [
   @keyframes fadeInSlow {
     0% {
       opacity: 0;
-      transform: scale(0.95);
+      transform: scale(
+        1.05
+      ); /* Pequeño zoom out inicial para darle un toque más elegante */
     }
     100% {
-      opacity: 0.7;
+      opacity: 1; /* Ahora sube a 1 de opacidad porque es el fondo principal */
       transform: scale(1);
     }
   }
@@ -228,36 +168,7 @@ const flowerPoints = [
     }
   }
 
-  /* 🟢 MAGIA 1: ANIMACIÓN "BLOOM" PARA QUE LAS FLORES CREZCAN */
-  .animate-bloom {
-    animation: bloom 1s cubic-bezier(0.34, 1.56, 0.64, 1) forwards;
-  }
-  @keyframes bloom {
-    0% {
-      opacity: 0;
-      transform: scale(0);
-    }
-    100% {
-      opacity: 1;
-      transform: scale(1);
-    }
-  }
-
-  /* 🟢 MAGIA NUEVA: LATIDO DEL CORAZÓN (Afecta imagen y rosas) */
-  .animate-heartbeat {
-    animation: heartbeat 3s ease-in-out 2.5s infinite;
-  }
-  @keyframes heartbeat {
-    0%,
-    100% {
-      transform: scale(1);
-    }
-    50% {
-      transform: scale(1.04);
-    }
-  }
-
-  /* 🟢 MAGIA 2: ANIMACIONES DE MARIPOSAS ALEATORIAS POR TODA LA PANTALLA */
+  /* 🟢 MARIPOSAS ALEATORIAS POR TODA LA PANTALLA */
   .animate-wander-1 {
     animation: wander1 25s linear infinite;
   }

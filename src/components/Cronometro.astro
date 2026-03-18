@@ -6,96 +6,34 @@ const eventDate = "2026-08-14T19:00:00";
 ---
 
 <section
-  class="relative w-full py-24 flex flex-col items-center justify-center overflow-hidden bg-neutral-50 rounded-t-[30px] md:rounded-t-[50px]"
+  class="relative z-10 h-100 w-screen overflow-x-clip py-28 flex flex-col items-center justify-center bg-neutral-50 rounded-t-[30px] md:rounded-t-[50px]"
 >
-  {/* 🟢 GRUPO DE FLORES IZQUIERDAS (Más pequeñas y variadas) */}
-  {/* Flor Superior Izquierda */}
+  {/* 🟢 FLOR SUPERIOR IZQUIERDA (Minimalista) */}
   <div
-    class="absolute left-[2%] top-[10%] z-0 opacity-50 scroll-animate delay-500 pointer-events-none"
+    class="absolute -left-10 md:-left-16 -top-5 md:-top-16 z-0 opacity-40 scroll-animate delay-500 pointer-events-none"
   >
     <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-20 md:w-32 transform -scale-x-100 -rotate-12 animate-float"
-    />
-  </div>
-  {/* Flor Media-Superior Izquierda */}
-  <div
-    class="absolute -left-5 md:left-[4%] top-[35%] z-0 opacity-70 scroll-animate delay-600 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-24 md:w-36 transform -scale-x-100 rotate-10 animate-float-delayed"
-    />
-  </div>
-  {/* Flor Media-Inferior Izquierda */}
-  <div
-    class="absolute left-[1%] md:left-[3%] top-[60%] z-0 opacity-60 scroll-animate delay-700 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-20 md:w-32 transform -scale-x-100 -rotate-5 animate-float"
-    />
-  </div>
-  {/* Flor Inferior Izquierda */}
-  <div
-    class="absolute -left-2.5 md:left-[6%] top-[85%] z-0 opacity-40 scroll-animate delay-800 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-16 md:w-28 transform -scale-x-100 rotate-15 animate-float-delayed"
+      src="/img/flor2.webp"
+      alt="Flor Decorativa"
+      class="w-40 md:w-56 transform rotate-135 animate-float"
     />
   </div>
 
-  {/* 🟢 GRUPO DE FLORES DERECHAS (Más pequeñas y variadas) */}
-  {/* Flor Superior Derecha */}
+  {/* 🟢 FLOR INFERIOR DERECHA (Minimalista) */}
   <div
-    class="absolute right-[3%] top-[15%] z-0 opacity-60 scroll-animate delay-500 pointer-events-none"
+    class="absolute -right-10 md:-right-16 -bottom-10 md:-bottom-16 z-0 opacity-40 scroll-animate delay-700 pointer-events-none"
   >
     <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-20 md:w-32 rotate-12 animate-float-delayed"
-    />
-  </div>
-  {/* Flor Media-Superior Derecha */}
-  <div
-    class="absolute -right-3.75 md:right-[5%] top-[40%] z-0 opacity-70 scroll-animate delay-600 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-24 md:w-36 -rotate-10 animate-float"
-    />
-  </div>
-  {/* Flor Media-Inferior Derecha */}
-  <div
-    class="absolute right-[2%] md:right-[4%] top-[65%] z-0 opacity-50 scroll-animate delay-700 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-20 md:w-32 rotate-8 animate-float-delayed"
-    />
-  </div>
-  {/* Flor Inferior Derecha */}
-  <div
-    class="absolute -right-1.25 md:right-[7%] top-[90%] z-0 opacity-40 scroll-animate delay-800 pointer-events-none"
-  >
-    <img
-      src="/img/lirio.webp"
-      alt="Lirio"
-      class="w-16 md:w-28 -rotate-15 animate-float"
+      src="/img/flor2.webp"
+      alt="Flor Decorativa"
+      class="w-40 md:w-56 transform -rotate-45 animate-float-delayed"
     />
   </div>
 
   {/* Título de la sección */}
-  <div class="z-10 text-center mb-10 scroll-animate delay-100">
+  <div class="relative z-10 text-center mb-12 scroll-animate delay-100">
     <h3
-      class="font-elegante italic text-4xl md:text-5xl text-neutral-800 font-bold drop-shadow-md"
+      class="font-elegante italic text-4xl md:text-5xl text-slate-600 font-bold drop-shadow-sm"
     >
       Falta muy poco...
     </h3>
@@ -103,69 +41,70 @@ const eventDate = "2026-08-14T19:00:00";
 
   {/* CONTENEDOR DE LA CUENTA REGRESIVA */}
   <div
-    class="z-10 flex gap-4 md:gap-8 items-center justify-center scroll-animate delay-300"
+    class="relative z-10 flex gap-4 md:gap-8 items-center justify-center scroll-animate delay-300"
   >
     {/* DÍAS */}
     <div class="flex flex-col items-center">
       <div
-        class="w-16 h-16 md:w-24 md:h-24 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-lg"
+        class="w-16 h-16 md:w-24 md:h-24 bg-[#223555] border border-[#D4AF37]/30 rounded-2xl flex items-center justify-center shadow-lg shadow-[#223555]/20"
       >
-        <span id="days" class="font-script text-4xl md:text-6xl text-black"
+        <span id="days" class="font-script text-4xl md:text-6xl text-[#D4AF37]"
           >00</span
         >
       </div>
       <span
-        class="font-limpia text-white text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-md"
+        class="font-limpia text-[#D4AF37] text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-sm"
         >Días</span
       >
     </div>
 
-    <span class="text-gray-300 text-2xl md:text-4xl pb-6 font-thin"> : </span>
+    <span class="text-slate-300 text-2xl md:text-4xl pb-6 font-thin"> : </span>
 
     {/* HORAS */}
     <div class="flex flex-col items-center">
       <div
-        class="w-16 h-16 md:w-24 md:h-24 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-lg"
+        class="w-16 h-16 md:w-24 md:h-24 bg-[#223555] border border-[#D4AF37]/30 rounded-2xl flex items-center justify-center shadow-lg shadow-[#223555]/20"
       >
-        <span id="hours" class="font-script text-4xl md:text-6xl text-black"
+        <span id="hours" class="font-script text-4xl md:text-6xl text-[#D4AF37]"
           >00</span
         >
       </div>
       <span
-        class="font-limpia text-white text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-md"
+        class="font-limpia text-[#D4AF37] text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-sm"
         >Hrs</span
       >
     </div>
 
-    <span class="text-gray-300 text-2xl md:text-4xl pb-6 font-thin"> : </span>
+    <span class="text-slate-300 text-2xl md:text-4xl pb-6 font-thin"> : </span>
 
     {/* MINUTOS */}
     <div class="flex flex-col items-center">
       <div
-        class="w-16 h-16 md:w-24 md:h-24 bg-white border border-gray-200 rounded-2xl flex items-center justify-center shadow-lg"
+        class="w-16 h-16 md:w-24 md:h-24 bg-[#223555] border border-[#D4AF37]/30 rounded-2xl flex items-center justify-center shadow-lg shadow-[#223555]/20"
       >
-        <span id="minutes" class="font-script text-4xl md:text-6xl text-black"
-          >00</span
+        <span
+          id="minutes"
+          class="font-script text-4xl md:text-6xl text-[#D4AF37]">00</span
         >
       </div>
       <span
-        class="font-limpia text-white text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-md"
+        class="font-limpia text-[#D4AF37] text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-semibold drop-shadow-sm"
         >Min</span
       >
     </div>
 
-    {/* SEGUNDOS (Resaltados en rojo) */}
+    {/* SEGUNDOS */}
     <div class="flex flex-col items-center ml-2">
       <div
-        class="w-16 h-16 md:w-24 md:h-24 bg-white border border-[#E63946]/40 rounded-2xl flex items-center justify-center shadow-lg"
+        class="w-16 h-16 md:w-24 md:h-24 bg-[#223555] border border-[#D4AF37]/60 rounded-2xl flex items-center justify-center shadow-lg shadow-[#223555]/20"
       >
         <span
           id="seconds"
-          class="font-script text-4xl md:text-6xl text-[#E63946]">00</span
+          class="font-script text-4xl md:text-6xl text-[#D4AF37]">00</span
         >
       </div>
       <span
-        class="font-limpia text-[#E63946] text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-bold drop-shadow-md"
+        class="font-limpia text-[#D4AF37] text-[10px] md:text-sm tracking-[0.2em] uppercase mt-3 font-bold drop-shadow-sm"
         >Seg</span
       >
     </div>
@@ -176,10 +115,10 @@ const eventDate = "2026-08-14T19:00:00";
   /* 🟢 CLASES PARA LA ANIMACIÓN AL HACER SCROLL */
   .scroll-animate {
     opacity: 0;
-    transform: translateY(40px);
+    transform: translateY(30px);
     transition:
-      opacity 0.8s ease-out,
-      transform 0.8s ease-out;
+      opacity 1s ease-out,
+      transform 1s ease-out;
   }
 
   .scroll-animate.delay-100 {
@@ -191,29 +130,22 @@ const eventDate = "2026-08-14T19:00:00";
   .scroll-animate.delay-500 {
     transition-delay: 0.5s;
   }
-  .scroll-animate.delay-600 {
-    transition-delay: 0.6s;
-  }
   .scroll-animate.delay-700 {
     transition-delay: 0.7s;
   }
-  .scroll-animate.delay-800 {
-    transition-delay: 0.8s;
-  }
 
-  /* Esta clase se añade mediante JS cuando el elemento es visible */
   .scroll-animate.is-visible {
     opacity: 1;
     transform: translateY(0);
   }
 
-  /* 🟢 ANIMACIÓN FLOTANTE PARA LOS LIRIOS */
+  /* 🟢 ANIMACIÓN FLOTANTE */
   .animate-float {
-    animation: float 6s ease-in-out infinite;
+    animation: float 8s ease-in-out infinite;
   }
 
   .animate-float-delayed {
-    animation: float 6s ease-in-out 3s infinite;
+    animation: float 8s ease-in-out 4s infinite;
   }
 
   @keyframes float {
@@ -221,7 +153,7 @@ const eventDate = "2026-08-14T19:00:00";
       transform: translateY(0px) rotate(var(--tw-rotate));
     }
     50% {
-      transform: translateY(-15px) rotate(calc(var(--tw-rotate) + 2deg));
+      transform: translateY(-8px) rotate(calc(var(--tw-rotate) + 3deg));
     }
     100% {
       transform: translateY(0px) rotate(var(--tw-rotate));
@@ -229,9 +161,7 @@ const eventDate = "2026-08-14T19:00:00";
   }
 </style>
 
-{/* 🟢 LÓGICA DE LA CUENTA REGRESIVA Y ANIMACIONES (JAVASCRIPT) */}
 <script define:vars={{ eventDate }}>
-  // 1. Lógica del Cronómetro (Sin cambios)
   const updateTimer = () => {
     const now = new Date().getTime();
     const target = new Date(eventDate).getTime();
@@ -269,12 +199,11 @@ const eventDate = "2026-08-14T19:00:00";
   updateTimer();
   setInterval(updateTimer, 1000);
 
-  // 2. Lógica de Animación al hacer Scroll (Intersection Observer)
   document.addEventListener("DOMContentLoaded", () => {
     const observerOptions = {
       root: null,
       rootMargin: "0px",
-      threshold: 0.2, // Se activa cuando el 20% del elemento entra en la pantalla
+      threshold: 0.2,
     };
 
     const observer = new IntersectionObserver((entries, observer) => {
