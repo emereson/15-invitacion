@@ -1,0 +1,201 @@
+---
+// src/components/AudioPlay.astro
+---
+
+<div
+  class="fixed bottom-6 right-6 z-50 flex items-center justify-center pointer-events-auto"
+>
+  <audio id="bg-audio" loop preload="auto">
+    <source src="/cancion.mp3" type="audio/mpeg" />
+  </audio>
+
+  <button
+    id="audio-toggle"
+    class="relative flex items-center justify-center w-14 h-14 md:w-16 md:h-16 rounded-full bg-black/40 backdrop-blur-md border border-white/20 shadow-[0_0_15px_rgba(230,57,70,0.3)] hover:bg-black/60 transition-all duration-500 overflow-visible group focus:outline-none"
+    aria-label="Reproducir/Pausar música"
+  >
+    <div
+      id="sound-ripple"
+      class="absolute inset-0 rounded-full opacity-0 pointer-events-none"
+    >
+    </div>
+
+    <div
+      class="absolute inset-[-30%] bg-[conic-gradient(transparent_270deg,rgba(230,57,70,0.8)_360deg)] animate-spin-slow opacity-0 group-hover:opacity-50 transition-opacity duration-500 rounded-full"
+      id="border-glow"
+    >
+    </div>
+
+    <div class="absolute inset-0.5 bg-[#050505]/90 rounded-full"></div>
+
+    <div
+      id="equalizer"
+      class="absolute inset-0 flex items-center justify-center gap-0.75 opacity-0 transition-opacity duration-500 pointer-events-none"
+    >
+      <div class="w-1 bg-[#E63946]/40 rounded-full animate-eq-1"></div>
+      <div class="w-1 bg-[#E63946]/50 rounded-full animate-eq-2"></div>
+      <div class="w-1 bg-[#E63946]/60 rounded-full animate-eq-3"></div>
+      <div class="w-1 bg-[#E63946]/50 rounded-full animate-eq-4"></div>
+      <div class="w-1 bg-[#E63946]/40 rounded-full animate-eq-5"></div>
+    </div>
+
+    <div class="relative z-10 flex items-center justify-center w-full h-full">
+      <svg
+        id="icon-play"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute w-6 h-6 md:w-7 md:h-7 ml-1 text-white/90 transition-all duration-500 transform scale-100 opacity-100 group-hover:scale-110 group-hover:text-white"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M8 5v14l11-7z"></path>
+      </svg>
+
+      <svg
+        id="icon-pause"
+        xmlns="http://www.w3.org/2000/svg"
+        class="absolute w-6 h-6 md:w-7 md:h-7 text-[#E63946] transition-all duration-500 transform scale-50 opacity-0 group-hover:scale-110 group-hover:text-red-400 drop-shadow-[0_0_8px_rgba(230,57,70,0.8)]"
+        fill="currentColor"
+        viewBox="0 0 24 24"
+      >
+        <path d="M6 19h4V5H6v14zm8-14v14h4V5h-4z"></path>
+      </svg>
+    </div>
+  </button>
+</div>
+
+<script>
+  const audio = document.getElementById("bg-audio") as HTMLAudioElement;
+  const toggleBtn = document.getElementById("audio-toggle");
+  const iconPlay = document.getElementById("icon-play");
+  const iconPause = document.getElementById("icon-pause");
+  const borderGlow = document.getElementById("border-glow");
+  const equalizer = document.getElementById("equalizer");
+  const soundRipple = document.getElementById("sound-ripple");
+
+  let isPlaying = false;
+
+  if (
+    audio &&
+    toggleBtn &&
+    iconPlay &&
+    iconPause &&
+    borderGlow &&
+    equalizer &&
+    soundRipple
+  ) {
+    audio.volume = 0.5;
+
+    const setUIPlaying = () => {
+      isPlaying = true;
+      // Ocultar Play suavemente
+      iconPlay.classList.replace("scale-100", "scale-50");
+      iconPlay.classList.replace("opacity-100", "opacity-0");
+
+      // Mostrar Pause suavemente
+      iconPause.classList.replace("scale-50", "scale-100");
+      iconPause.classList.replace("opacity-0", "opacity-100");
+
+      // Activar animaciones (Ecualizador visual y Ripple)
+      equalizer.classList.replace("opacity-0", "opacity-100");
+      soundRipple.classList.add("animate-sound-wave");
+
+      borderGlow.classList.remove("opacity-0", "group-hover:opacity-50");
+      borderGlow.classList.add("opacity-100");
+    };
+
+    const setUIPaused = () => {
+      isPlaying = false;
+      // Mostrar Play suavemente
+      iconPlay.classList.replace("scale-50", "scale-100");
+      iconPlay.classList.replace("opacity-0", "opacity-100");
+
+      // Ocultar Pause suavemente
+      iconPause.classList.replace("scale-100", "scale-50");
+      iconPause.classList.replace("opacity-100", "opacity-0");
+
+      // Detener animaciones
+      equalizer.classList.replace("opacity-100", "opacity-0");
+      soundRipple.classList.remove("animate-sound-wave");
+
+      borderGlow.classList.remove("opacity-100");
+      borderGlow.classList.add("opacity-0", "group-hover:opacity-50");
+    };
+
+    toggleBtn.addEventListener("click", () => {
+      if (isPlaying) {
+        audio.pause();
+        setUIPaused();
+      } else {
+        audio
+          .play()
+          .then(setUIPlaying)
+          .catch((e) => console.log("Error de audio:", e));
+      }
+    });
+
+    audio.addEventListener("pause", () => {
+      if (isPlaying) setUIPaused();
+    });
+  }
+</script>
+
+<style>
+  /* 🟢 NUEVAS ANIMACIONES DEL ECUALIZADOR */
+  .animate-eq-1 {
+    animation: eqHeight 1.2s ease-in-out infinite alternate;
+  }
+  .animate-eq-2 {
+    animation: eqHeight 0.8s ease-in-out infinite alternate 0.2s;
+  }
+  .animate-eq-3 {
+    animation: eqHeight 1.5s ease-in-out infinite alternate 0.4s;
+  }
+  .animate-eq-4 {
+    animation: eqHeight 1.1s ease-in-out infinite alternate 0.1s;
+  }
+  .animate-eq-5 {
+    animation: eqHeight 0.9s ease-in-out infinite alternate 0.3s;
+  }
+
+  @keyframes eqHeight {
+    0% {
+      height: 20%;
+      opacity: 0.3;
+    }
+    100% {
+      height: 60%;
+      opacity: 1;
+    }
+  }
+
+  /* 🟢 ONDAS DE SONIDO EXTERNAS (RIPPLE EFFECT) */
+  .animate-sound-wave {
+    animation: soundWave 2s cubic-bezier(0.4, 0, 0.2, 1) infinite;
+    opacity: 1 !important;
+  }
+
+  @keyframes soundWave {
+    0% {
+      box-shadow: 0 0 0 0 rgba(230, 57, 70, 0.6);
+    }
+    70% {
+      box-shadow: 0 0 0 20px rgba(230, 57, 70, 0);
+    }
+    100% {
+      box-shadow: 0 0 0 0 rgba(230, 57, 70, 0);
+    }
+  }
+
+  /* 🟢 ANIMACIÓN DEL BORDE LUMINOSO ROTATIVO */
+  .animate-spin-slow {
+    animation: spin 3s linear infinite;
+  }
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
+</style>

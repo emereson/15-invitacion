@@ -1,0 +1,83 @@
+---
+// src/components/WelcomeModal.astro
+---
+
+<div
+  id="welcome-modal"
+  class="fixed inset-0 z-100 flex items-center justify-center bg-[#050505]/95 backdrop-blur-xl transition-all duration-1000 ease-in-out"
+>
+  <div
+    class="text-center flex flex-col items-center px-6 transform transition-transform duration-1000"
+    id="modal-content"
+  >
+    <span
+      class="font-limpia tracking-[0.3em] text-xs md:text-sm text-gray-400 mb-4 uppercase animate-pulse"
+    >
+      Has recibido una invitación
+    </span>
+
+    <h1
+      class="font-script text-6xl md:text-[6rem] text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)] mb-2 py-2"
+    >
+      Mis 15 Años
+    </h1>
+
+    <h2
+      class="font-elegante italic text-4xl md:text-5xl text-[#E63946] drop-shadow-[0_0_15px_rgba(230,57,70,0.4)] mb-10"
+    >
+      Maya
+    </h2>
+
+    <button
+      id="open-btn"
+      class="relative overflow-hidden group px-10 py-3 rounded-full bg-black/40 border border-white/20 text-white font-limpia tracking-[0.2em] uppercase text-xs md:text-sm hover:bg-white/10 hover:border-white/40 hover:scale-105 transition-all duration-500 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.5)] focus:outline-none"
+    >
+      <span class="relative z-10 flex items-center gap-2">
+        <svg
+          xmlns="http://www.w3.org/2000/svg"
+          class="w-4 h-4"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="2"
+            d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5M10 12l2.25 1.5M14 12l-2.25 1.5"
+          ></path>
+        </svg>
+        Abrir Invitación
+      </span>
+      <div
+        class="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+      >
+      </div>
+    </button>
+  </div>
+</div>
+
+<script>
+  const modal = document.getElementById("welcome-modal");
+  const modalContent = document.getElementById("modal-content");
+  const openBtn = document.getElementById("open-btn");
+  const audioBtn = document.getElementById("audio-toggle"); // Referencia al botón de audio
+
+  if (openBtn && modal && modalContent) {
+    openBtn.addEventListener("click", () => {
+      // 1. Animación de salida (fade out y scale up)
+      modal.classList.add("opacity-0", "pointer-events-none");
+      modalContent.classList.add("scale-110");
+
+      // 2. Destruir el modal después de la animación para liberar memoria
+      setTimeout(() => {
+        modal.remove();
+      }, 1000);
+
+      // 3. ¡Magia! Disparamos un clic en el botón de audio flotante
+      if (audioBtn) {
+        audioBtn.click();
+      }
+    });
+  }
+</script>
