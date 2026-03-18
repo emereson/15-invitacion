@@ -4,77 +4,107 @@
 
 <div
   id="welcome-modal"
-  class="fixed inset-0 z-100 flex items-center justify-center bg-[#050505]/95 backdrop-blur-xl transition-all duration-1000 ease-in-out"
+  class="fixed inset-0 z-[100] flex items-center justify-center bg-[#020617] backdrop-blur-2xl transition-all duration-[1200ms] ease-in-out"
 >
   <div
-    class="text-center flex flex-col items-center px-6 transform transition-transform duration-1000"
+    class="absolute inset-0 opacity-10 bg-[url('/img/brillos.gif')] bg-repeat pointer-events-none mix-blend-screen"
+  >
+  </div>
+
+  <div
+    class="text-center flex flex-col items-center px-8 transform transition-all duration-1000 scale-100 opacity-100"
     id="modal-content"
   >
-    <span
-      class="font-limpia tracking-[0.3em] text-xs md:text-sm text-gray-400 mb-4 uppercase animate-pulse"
-    >
-      Has recibido una invitación
-    </span>
+    <div class="animate-reveal">
+      <span
+        class="font-limpia tracking-[0.6em] text-[10px] md:text-xs text-[#D4AF37] mb-6 block uppercase font-bold pr-[0.6em]"
+      >
+        Has recibido una invitación
+      </span>
+      <h1
+        class="font-script text-7xl md:text-[9rem] text-white leading-[0.5] drop-shadow-[0_10px_20px_rgba(0,0,0,0.5)] mb-4"
+      >
+        Mis 15 Años
+      </h1>
+    </div>
 
-    <h1
-      class="font-script text-6xl md:text-[6rem] text-white drop-shadow-[0_4px_15px_rgba(0,0,0,0.8)] mb-2 py-2"
-    >
-      Mis 15 Años
-    </h1>
-
-    <h2
-      class="font-elegante italic text-4xl md:text-5xl text-[#D4AF37] drop-shadow-[0_0_15px_rgba(230,57,70,0.4)] mb-10"
-    >
-      Maya
-    </h2>
+    <div class="animate-reveal" style="animation-delay: 0.3s;">
+      <h2
+        class="font-elegante italic text-5xl md:text-7xl text-[#D4AF37] font-bold tracking-tight drop-shadow-[0_0_20px_rgba(212,175,55,0.3)]"
+      >
+        Maya
+      </h2>
+      <div class="flex items-center justify-center gap-4 my-8">
+        <div
+          class="h-[1px] w-12 bg-gradient-to-r from-transparent to-[#D4AF37]/50"
+        >
+        </div>
+        <div class="w-2 h-2 rotate-45 border border-[#D4AF37] bg-[#D4AF37]/20">
+        </div>
+        <div
+          class="h-[1px] w-12 bg-gradient-to-l from-transparent to-[#D4AF37]/50"
+        >
+        </div>
+      </div>
+    </div>
 
     <button
       id="open-btn"
-      class="relative overflow-hidden group px-10 py-3 rounded-full bg-black/40 border border-white/20 text-white font-limpia tracking-[0.2em] uppercase text-xs md:text-sm hover:bg-white/10 hover:border-white/40 hover:scale-105 transition-all duration-500 backdrop-blur-md shadow-[0_0_20px_rgba(0,0,0,0.5)] focus:outline-none"
+      class="animate-reveal group relative px-12 py-4 rounded-full bg-gradient-to-br from-[#162642] to-[#0a111e] border border-[#D4AF37]/40 text-white font-limpia tracking-[0.3em] uppercase text-xs md:text-sm transition-all duration-500 hover:scale-105 hover:border-[#D4AF37] hover:shadow-[0_0_30px_rgba(212,175,55,0.2)] active:scale-95 pointer-events-auto overflow-hidden"
+      style="animation-delay: 0.6s;"
     >
-      <span class="relative z-10 flex items-center gap-2">
-        <svg
-          xmlns="http://www.w3.org/2000/svg"
-          class="w-4 h-4"
-          fill="none"
-          viewBox="0 0 24 24"
-          stroke="currentColor"
-        >
-          <path
-            stroke-linecap="round"
-            stroke-linejoin="round"
-            stroke-width="2"
-            d="M3 19v-8.93a2 2 0 01.89-1.664l7-4.666a2 2 0 012.22 0l7 4.666A2 2 0 0121 10.07V19M3 19a2 2 0 002 2h14a2 2 0 002-2M3 19l6.75-4.5M21 19l-6.75-4.5M3 10l6.75 4.5M21 10l-6.75 4.5M10 12l2.25 1.5M14 12l-2.25 1.5"
-          ></path>
-        </svg>
+      <span class="relative z-10 flex items-center gap-3 pr-[0.3em]">
         Abrir Invitación
       </span>
       <div
-        class="absolute inset-0 bg-linear-to-r from-transparent via-white/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-700 ease-in-out"
+        class="absolute inset-0 bg-gradient-to-r from-transparent via-[#D4AF37]/10 to-transparent -translate-x-full group-hover:translate-x-full transition-transform duration-1000"
       >
       </div>
     </button>
   </div>
 </div>
 
+<style>
+  .animate-reveal {
+    opacity: 0;
+    transform: translateY(20px);
+    animation: revealIn 1.2s ease-out forwards;
+  }
+  @keyframes revealIn {
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  .modal-exit {
+    opacity: 0 !important;
+    filter: blur(20px);
+    transform: scale(1.1);
+    pointer-events: none !important;
+  }
+</style>
+
 <script>
   const modal = document.getElementById("welcome-modal");
-  const modalContent = document.getElementById("modal-content");
   const openBtn = document.getElementById("open-btn");
-  const audioBtn = document.getElementById("audio-toggle"); // Referencia al botón de audio
+  const audioBtn = document.getElementById("audio-toggle");
 
-  if (openBtn && modal && modalContent) {
+  // 🔴 BLOQUEAR SCROLL AL CARGAR EL MODAL
+  if (modal) {
+    document.body.style.overflow = "hidden";
+  }
+
+  if (openBtn && modal) {
     openBtn.addEventListener("click", () => {
-      // 1. Animación de salida (fade out y scale up)
-      modal.classList.add("opacity-0", "pointer-events-none");
-      modalContent.classList.add("scale-110");
+      modal.classList.add("modal-exit");
 
-      // 2. Destruir el modal después de la animación para liberar memoria
+      // 🟢 LIBERAR SCROLL Y ACTIVAR BANNER
+      document.body.style.overflow = ""; // Restaura el scroll original
+      document.body.classList.add("invitation-open");
+
       setTimeout(() => {
         modal.remove();
-      }, 1000);
-
-      // 3. ¡Magia! Disparamos un clic en el botón de audio flotante
+      }, 1200);
       if (audioBtn) {
         audioBtn.click();
       }
