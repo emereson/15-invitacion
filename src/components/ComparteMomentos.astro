@@ -1,0 +1,231 @@
+---
+// src/components/ComparteMomentos.astro
+---
+
+<section
+  class="relative z-10 w-full overflow-clip bg-[#0a111e] py-16 md:py-20 border-y border-[#D4AF37]/30 comparte-section"
+>
+  {/* 🟢 CAPA DE BRILLOS */}
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-0 bg-[url('/img/brillos.gif')] bg-size-[250px_250px] bg-repeat z-10 pointer-events-none mix-blend-screen brillos-layer"
+  >
+  </div>
+
+  <div
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-8 md:gap-0"
+  >
+    {/* 🌸 FLOR DECORATIVA 1 (Esquina superior derecha) */}
+    <div
+      class="absolute z-30 -right-6 md:-right-12 -top-15 md:-top-12 opacity-0 transform animate-float flor-decorativa pointer-events-none"
+    >
+      <img
+        src="/img/rosa2.webp"
+        alt="Flor Decorativa"
+        class="w-32 md:w-48 transform rotate-45 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+      />
+    </div>
+
+    {/* 🌸 FLOR DECORATIVA 2 (Esquina inferior izquierda) */}
+    <div
+      class="absolute z-30 -left-6 md:-left-12 -bottom-14 md:-bottom-12 opacity-0 transform animate-float-delayed flor-decorativa pointer-events-none"
+    >
+      <img
+        src="/img/rosa2.webp"
+        alt="Flor Decorativa"
+        class="w-32 md:w-48 transform -rotate-135 drop-shadow-[0_0_15px_rgba(59,130,246,0.5)]"
+      />
+    </div>
+
+    <div
+      class="relative z-20 max-w-4xl mx-auto px-6 text-center reveal-content flex flex-col items-center"
+    >
+      {/* Ícono decorativo superior */}
+      <div class="mb-6 flex justify-center opacity-60">
+        <svg width="50" height="20" viewBox="0 0 40 20" fill="none">
+          <path
+            d="M0 10C10 10 15 0 20 0C25 0 30 10 40 10"
+            stroke="#D4AF37"
+            stroke-width="1.5"></path>
+        </svg>
+      </div>
+
+      {/* Textos Elegantes */}
+      <h3
+        class="font-script text-5xl md:text-6xl text-[#D4AF37] mb-2 text-glow"
+      >
+        Captura la Magia
+      </h3>
+      <p
+        class="font-elegante text-xl md:text-2xl text-white tracking-widest uppercase mb-10 text-glow"
+      >
+        Comparte tus momentos
+      </p>
+
+      {/* 🟢 MARCO ELEGANTE PARA EL QR */}
+      <div class="relative group mb-8">
+        {/* Resplandor detrás del QR */}
+        <div
+          class="absolute -inset-1 bg-linear-to-r from-[#D4AF37] via-[#f9e596] to-[#D4AF37] rounded-3xl blur opacity-30 group-hover:opacity-60 transition duration-1000"
+        >
+        </div>
+
+        {/* Contenedor del QR */}
+        <div
+          class="relative p-5 bg-white rounded-3xl border-2 border-[#D4AF37]/60 shadow-[0_10px_30px_rgba(0,0,0,0.5)] transform transition-transform duration-500 group-hover:scale-105"
+        >
+          <img
+            src="/img/qr.webp"
+            alt="Código QR para compartir fotos"
+            class="w-48 h-48 md:w-64 md:h-64 object-cover rounded-xl"
+          />
+
+          {/* Esquinas decorativas dentro del marco del QR */}
+          <div
+            class="absolute top-2 left-2 w-4 h-4 border-t-2 border-l-2 border-[#D4AF37]"
+          >
+          </div>
+          <div
+            class="absolute top-2 right-2 w-4 h-4 border-t-2 border-r-2 border-[#D4AF37]"
+          >
+          </div>
+          <div
+            class="absolute bottom-2 left-2 w-4 h-4 border-b-2 border-l-2 border-[#D4AF37]"
+          >
+          </div>
+          <div
+            class="absolute bottom-2 right-2 w-4 h-4 border-b-2 border-r-2 border-[#D4AF37]"
+          >
+          </div>
+        </div>
+      </div>
+
+      <p
+        class="font-elegante text-sm md:text-base text-slate-300 tracking-wider max-w-md mx-auto italic mb-6"
+      >
+        Escanea el código para subir y ver todas las fotos y videos de esta
+        noche inolvidable.
+      </p>
+
+      {/* Ícono decorativo inferior */}
+      <div class="mt-4 flex justify-center opacity-60 rotate-180">
+        <svg width="50" height="20" viewBox="0 0 40 20" fill="none">
+          <path
+            d="M0 10C10 10 15 0 20 0C25 0 30 10 40 10"
+            stroke="#D4AF37"
+            stroke-width="1.5"></path>
+        </svg>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 🔵 EFECTO NOCHE ESTRELLADA */
+  .comparte-section {
+    opacity: 0;
+    transform: scale(0.98);
+    box-shadow:
+      0 0 60px -10px rgba(10, 25, 47, 0.9),
+      0 0 40px rgba(59, 130, 246, 0.25),
+      inset 0 0 20px rgba(212, 175, 55, 0.05);
+    transition:
+      opacity 1.5s ease-out,
+      transform 1.2s ease-out,
+      box-shadow 2s ease-in-out;
+  }
+
+  .comparte-section.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow:
+      0 0 130px -10px rgba(10, 25, 47, 1),
+      0 0 60px rgba(59, 130, 246, 0.4),
+      inset 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+
+  /* 🔵 GLOW EN EL TEXTO */
+  .text-glow {
+    text-shadow:
+      0 0 10px rgba(0, 0, 0, 0.8),
+      0 0 25px rgba(59, 130, 246, 0.3);
+  }
+
+  /* --- ANIMACIONES DE REVELADO --- */
+  .reveal-content {
+    opacity: 0;
+    transition: opacity 1s ease-out 0.5s;
+  }
+
+  .comparte-section.active .reveal-content {
+    opacity: 1;
+  }
+
+  .brillos-layer {
+    transition: opacity 2.5s ease-in 1s;
+  }
+
+  .comparte-section.active .brillos-layer {
+    opacity: 0.4;
+  }
+
+  .flor-decorativa {
+    transition:
+      opacity 1.8s ease-out 0.8s,
+      transform 1.5s ease-out 0.8s;
+  }
+
+  .comparte-section.active .flor-decorativa {
+    opacity: 0.8;
+  }
+
+  /* 🟢 BALANCEO FLOTANTE */
+  .animate-float {
+    animation: float 10s ease-in-out infinite;
+  }
+
+  /* Animación retrasada e inversa para la segunda flor */
+  .animate-float-delayed {
+    animation: float-reverse 12s ease-in-out 2s infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(45deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(50deg);
+    }
+  }
+
+  @keyframes float-reverse {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-135deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(-140deg);
+    }
+  }
+</style>
+
+<script>
+  const initComparteReveal = () => {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            observer.unobserve(entry.target);
+          }
+        });
+      },
+      { threshold: 0.2 },
+    );
+
+    const section = document.querySelector(".comparte-section");
+    if (section) observer.observe(section);
+  };
+
+  document.addEventListener("DOMContentLoaded", initComparteReveal);
+</script>

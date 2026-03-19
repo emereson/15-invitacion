@@ -1,0 +1,618 @@
+---
+// src/components/Itinerario.astro
+---
+
+<section
+  class="relative z-10 w-full overflow-clip bg-[#0a111e] py-16 md:py-24 px-4 border-y border-[#D4AF37]/30 itinerario-section"
+>
+  {/* 🟢 CAPA DE BRILLOS (Fondo general) */}
+  <div
+    class="absolute top-0 left-0 w-full h-full opacity-0 bg-[url('/img/brillos.gif')] bg-size-[250px_250px] bg-repeat z-10 pointer-events-none mix-blend-screen brillos-layer"
+  >
+  </div>
+
+  {/* 🟢 CONTENEDOR PRINCIPAL TIPO TARJETA */}
+  {
+    /* Le quitamos el shadow-[...] de Tailwind y le agregamos la clase 'itinerario-card' */
+  }
+  <div
+    class="itinerario-card relative z-20 w-full max-w-4xl mx-auto px-4 py-12 md:px-12 md:py-16 bg-linear-to-b from-[#111d33]/90 to-[#0a111e]/90 backdrop-blur-xl border border-[#D4AF37]/40 rounded-[2.5rem] flex flex-col items-center overflow-visible"
+  >
+    {/* 🌸 FLOR DECORATIVA 1 (Esquina superior derecha) */}
+    <div
+      class="absolute z-30 -right-6 md:-right-12 -top-8 md:-top-12 opacity-0 transform animate-float flor-decorativa pointer-events-none"
+    >
+      <img
+        src="/img/rosa2.webp"
+        alt="Flor Decorativa"
+        class="w-32 md:w-48 transform rotate-45 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
+      />
+    </div>
+
+    {/* 🌸 FLOR DECORATIVA 2 (Esquina inferior izquierda) */}
+    <div
+      class="absolute z-30 -left-6 md:-left-12 -bottom-8 md:-bottom-12 opacity-0 transform animate-float-delayed flor-decorativa pointer-events-none"
+    >
+      <img
+        src="/img/rosa2.webp"
+        alt="Flor Decorativa"
+        class="w-32 md:w-48 transform -rotate-135 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
+      />
+    </div>
+
+    {/* Fondo de Hoja para la tarjeta (textura ultra sutil) */}
+    <div
+      class="absolute inset-0 bg-[url('/img/hoja.webp')] bg-repeat bg-cover bg-center mix-blend-overlay pointer-events-none rounded-[2.5rem]"
+    >
+    </div>
+
+    {/* Contenido de la Tarjeta */}
+    <div class="relative z-10 w-full flex flex-col items-center">
+      {/* 🟢 TÍTULO Y DIVISOR */}
+      <div
+        class="itinerario-container w-full flex flex-col items-center scroll-reveal"
+      >
+        <h2
+          class="font-script text-5xl md:text-7xl text-[#D4AF37] mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
+        >
+          Itinerario
+        </h2>
+        <p
+          class="font-elegante text-slate-300 text-xs md:text-sm tracking-[0.4em] uppercase mb-6 opacity-80 text-center"
+        >
+          Los momentos de la noche
+        </p>
+
+        {/* Divisor Superior Dorado */}
+        <div class="gold-wave-divisor">
+          <svg
+            class="wave-left"
+            viewBox="0 0 100 20"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,10 C20,10 30,0 50,0 C70,0 80,10 100,10"
+              stroke="#D4AF37"
+              stroke-width="1"
+              fill="none"></path>
+          </svg>
+          <div class="gold-bow-center">
+            <svg
+              width="30"
+              height="20"
+              viewBox="0 0 24 24"
+              fill="none"
+              stroke="#D4AF37"
+              stroke-width="1.2"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+            >
+              <path d="M12 12c-2-2-6-4-8-2s2 6 8 2c6-4 10-2 8 2s-6 4-8-2z"
+              ></path>
+              <path d="M12 12l-4 8M12 12l4 8"></path>
+            </svg>
+          </div>
+          <svg
+            class="wave-right"
+            viewBox="0 0 100 20"
+            preserveAspectRatio="none"
+          >
+            <path
+              d="M0,10 C20,10 30,0 50,0 C70,0 80,10 100,10"
+              stroke="#D4AF37"
+              stroke-width="1"
+              fill="none"></path>
+          </svg>
+        </div>
+      </div>
+
+      {/* 🟢 LÍNEA DE TIEMPO */}
+      <div class="timeline-container w-full mt-4">
+        <div
+          class="timeline-line bg-linear-to-b from-[#D4AF37]/80 via-[#D4AF37]/40 to-transparent"
+        >
+        </div>
+        <ul class="timeline-list">
+          {/* EVENTO 1: Llegada */}
+          <li class="timeline-item left-text group scroll-reveal delay-100">
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                8:00 PM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Llegada de invitados
+              </p>
+            </div>
+            <div
+              class="timeline-dot group-hover:scale-150 group-hover:bg-white transition-all duration-300"
+            >
+            </div>
+            <div class="item-content icon-side">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path
+                  d="M12 2l2.4 7.6H22l-6.2 4.5 2.4 7.6-6.2-4.5-6.2 4.5 2.4-7.6L2 9.6h7.6Z"
+                ></path>
+              </svg>
+            </div>
+          </li>
+
+          {/* EVENTO 2: Gran Entrada */}
+          <li class="timeline-item right-text group scroll-reveal delay-200">
+            <div class="item-content icon-side">
+              <svg
+                width="50"
+                height="50"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path d="M3 20h18M4 17l2-9 4 4 2-8 2 8 4-4 2 9z"></path>
+                <circle cx="12" cy="5" r="1" fill="#D4AF37"></circle>
+                <circle cx="6" cy="10" r="1"></circle>
+                <circle cx="18" cy="10" r="1"></circle>
+              </svg>
+            </div>
+            <div
+              class="timeline-dot group-hover:scale-150 group-hover:bg-white transition-all duration-300"
+            >
+            </div>
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                8:30 PM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Gran Entrada
+              </p>
+            </div>
+          </li>
+
+          {/* EVENTO 3: Cena */}
+          <li class="timeline-item left-text group scroll-reveal delay-300">
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                9:30 PM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Cena
+              </p>
+            </div>
+            <div
+              class="timeline-dot group-hover:scale-150 group-hover:bg-white transition-all duration-300"
+            >
+            </div>
+            <div class="item-content icon-side">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path d="M5 16A7 7 0 0 1 19 16z"></path>
+                <path d="M11 9V7M9 7h6M3 18h18M3 16h18"></path>
+              </svg>
+            </div>
+          </li>
+
+          {/* EVENTO 4: Bailes Especiales */}
+          <li class="timeline-item right-text group scroll-reveal delay-400">
+            <div class="item-content icon-side">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path d="M9 18V5l12-2v13M9 9l12-2"></path>
+                <circle cx="6" cy="18" r="3" fill="#D4AF37" fill-opacity="0.2"
+                ></circle>
+                <circle cx="18" cy="16" r="3" fill="#D4AF37" fill-opacity="0.2"
+                ></circle>
+              </svg>
+            </div>
+            <div
+              class="timeline-dot group-hover:scale-150 group-hover:bg-white transition-all duration-300"
+            >
+            </div>
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                10:00 PM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Bailes Especiales
+              </p>
+            </div>
+          </li>
+
+          {/* EVENTO 5: Fiesta/Antifaz */}
+          <li class="timeline-item left-text group scroll-reveal delay-500">
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                11:00 PM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Que no pare la fiesta!
+              </p>
+            </div>
+            <div
+              class="timeline-dot group-hover:scale-150 group-hover:bg-white transition-all duration-300"
+            >
+            </div>
+            <div class="item-content icon-side">
+              <svg
+                width="48"
+                height="48"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path
+                  d="M22 12c0 4-4 5-5 5s-3-2-5-2-4 2-5 2-5-1-5-5 3-5 5-5c1.5 0 3 .5 5 2 2-1.5 3.5-2 5-2 2 0 5 1 5 5z"
+                ></path>
+                <circle cx="7" cy="11" r="1.5" fill="#D4AF37"></circle>
+                <circle cx="17" cy="11" r="1.5" fill="#D4AF37"></circle>
+              </svg>
+            </div>
+          </li>
+
+          {/* EVENTO 6: Fin de la Noche */}
+          <li
+            class="timeline-item right-text group scroll-reveal delay-600 mb-0"
+          >
+            <div class="item-content icon-side">
+              <svg
+                width="45"
+                height="45"
+                viewBox="0 0 24 24"
+                fill="none"
+                stroke="#D4AF37"
+                stroke-width="1"
+                stroke-linecap="round"
+                stroke-linejoin="round"
+                class="icon-glow"
+              >
+                <path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"
+                ></path>
+                <path d="M5 3v4M3 5h4" stroke-width="1.5"></path>
+              </svg>
+            </div>
+            <div
+              class="timeline-dot-final shadow-[0_0_15px_rgba(212,175,55,1)]"
+            >
+            </div>
+            <div class="item-content text-side font-sans">
+              <p
+                class="time text-[#c1b07a] text-sm md:text-base font-semibold tracking-widest"
+              >
+                12:00 AM
+              </p>
+              <p
+                class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
+              >
+                Fin de Recepción
+              </p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  /* 🟢 ANIMACIÓN DE LA SECCIÓN BASE */
+  .itinerario-section {
+    opacity: 0;
+    transform: scale(0.98);
+    box-shadow:
+      0 0 60px -10px rgba(10, 25, 47, 0.9),
+      0 0 40px rgba(59, 130, 246, 0.25),
+      inset 0 0 20px rgba(212, 175, 55, 0.05);
+    transition:
+      opacity 1.5s ease-out,
+      transform 1.2s ease-out,
+      box-shadow 2s ease-in-out;
+  }
+  .itinerario-section.active {
+    opacity: 1;
+    transform: scale(1);
+    box-shadow:
+      0 0 130px -10px rgba(10, 25, 47, 1),
+      0 0 60px rgba(59, 130, 246, 0.4),
+      inset 0 0 30px rgba(212, 175, 55, 0.1);
+  }
+  .itinerario-section.active .brillos-layer {
+    opacity: 0.5;
+    transition: opacity 2.5s ease-in 0.5s;
+  }
+  .itinerario-section.active .flor-decorativa {
+    opacity: 0.9;
+    transition: opacity 1.8s ease-out 0.5s;
+  }
+
+  /* 🟢 ANIMACIÓN DEL BOX-SHADOW EN LA TARJETA (¡Aquí está la magia!) */
+  .itinerario-card {
+    transform: scale(0.98);
+    /* Estado inicial: Sombra oscura y apagada */
+    box-shadow:
+      0 20px 40px rgba(0, 0, 0, 0.6),
+      0 0 0px rgba(59, 130, 246, 0),
+      inset 0 0 0px rgba(212, 175, 55, 0);
+    transition:
+      transform 1.2s ease-out,
+      box-shadow 2s ease-in-out;
+  }
+
+  .itinerario-section.active .itinerario-card {
+    transform: scale(1);
+    /* Estado activo: Resplandor azul y dorado de tus valores originales */
+    box-shadow:
+      0 30px 60px -10px rgba(10, 25, 47, 1),
+      0 0 60px rgba(59, 130, 246, 0.35),
+      inset 0 0 30px rgba(212, 175, 55, 0.15);
+  }
+
+  /* 🟢 DIVISORES DORADOS */
+  .gold-wave-divisor {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 20px;
+    width: 100%;
+    max-width: 350px;
+    margin: 0 auto 30px auto;
+  }
+  .wave-left,
+  .wave-right {
+    flex: 1;
+    height: 12px;
+  }
+  .gold-bow-center {
+    width: 30px;
+    margin: 0 10px;
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(212, 175, 55, 0.4));
+  }
+
+  /* 🟢 LÍNEA DE TIEMPO */
+  .timeline-container {
+    position: relative;
+    max-width: 550px;
+    margin: 0 auto;
+    z-index: 2;
+  }
+  .timeline-line {
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 2px;
+    z-index: 1;
+  }
+  .timeline-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .timeline-item {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 45px;
+    position: relative;
+  }
+
+  .item-content {
+    flex: 1;
+    z-index: 2;
+  }
+  .item-content.text-side {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .item-content.icon-side {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
+
+  /* Punto normal */
+  .timeline-dot {
+    width: 10px;
+    height: 10px;
+    background-color: #d4af37;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+    box-shadow: 0 0 12px rgba(212, 175, 55, 0.8);
+  }
+  /* Punto Final (Luna) */
+  .timeline-dot-final {
+    width: 14px;
+    height: 14px;
+    background-color: #ffffff;
+    border: 2px solid #d4af37;
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 2;
+  }
+
+  /* Alineaciones de texto adaptadas a móvil y escritorio */
+  .timeline-item.left-text .item-content.text-side {
+    text-align: right;
+    padding-right: 20px;
+  }
+  .timeline-item.left-text .item-content.icon-side {
+    justify-content: flex-start;
+    padding-left: 20px;
+  }
+
+  .timeline-item.right-text .item-content.icon-side {
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .timeline-item.right-text .item-content.text-side {
+    text-align: left;
+    padding-left: 20px;
+  }
+
+  @media (min-width: 768px) {
+    .timeline-item.left-text .item-content.text-side {
+      padding-right: 40px;
+    }
+    .timeline-item.left-text .item-content.icon-side {
+      padding-left: 40px;
+    }
+    .timeline-item.right-text .item-content.icon-side {
+      padding-right: 40px;
+    }
+    .timeline-item.right-text .item-content.text-side {
+      padding-left: 40px;
+    }
+  }
+
+  /* Efecto de brillo en íconos */
+  .icon-glow {
+    filter: drop-shadow(0px 0px 5px rgba(212, 175, 55, 0.4));
+    transition:
+      transform 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275),
+      filter 0.4s ease;
+  }
+  .timeline-item:hover .icon-glow {
+    transform: scale(1.15) rotate(3deg);
+    filter: drop-shadow(0px 0px 10px rgba(212, 175, 55, 0.9));
+  }
+
+  /* 🟢 ANIMACIONES DE FLOTE */
+  .animate-float {
+    animation: float 10s ease-in-out infinite;
+  }
+  .animate-float-delayed {
+    animation: float-reverse 12s ease-in-out 2s infinite;
+  }
+
+  @keyframes float {
+    0%,
+    100% {
+      transform: translateY(0) rotate(45deg);
+    }
+    50% {
+      transform: translateY(-15px) rotate(50deg);
+    }
+  }
+  @keyframes float-reverse {
+    0%,
+    100% {
+      transform: translateY(0) rotate(-135deg);
+    }
+    50% {
+      transform: translateY(-12px) rotate(-140deg);
+    }
+  }
+
+  /* 🟢 SCROLL REVEAL (Aparición en cascada) */
+  .scroll-reveal {
+    opacity: 0;
+    transform: translateY(35px);
+    transition: all 1s cubic-bezier(0.25, 0.8, 0.25, 1);
+  }
+  .scroll-reveal.active {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .delay-100 {
+    transition-delay: 0.1s;
+  }
+  .delay-200 {
+    transition-delay: 0.2s;
+  }
+  .delay-300 {
+    transition-delay: 0.3s;
+  }
+  .delay-400 {
+    transition-delay: 0.4s;
+  }
+  .delay-500 {
+    transition-delay: 0.5s;
+  }
+  .delay-600 {
+    transition-delay: 0.6s;
+  }
+</style>
+
+<script>
+  function initItinerarioReveal() {
+    const observer = new IntersectionObserver(
+      (entries) => {
+        entries.forEach((entry) => {
+          if (entry.isIntersecting) {
+            entry.target.classList.add("active");
+            // Opcional: observer.unobserve(entry.target); si quieres que la animación se ejecute solo una vez
+          }
+        });
+      },
+      { threshold: 0.2, rootMargin: "0px 0px -50px 0px" },
+    );
+
+    document
+      .querySelectorAll(".scroll-reveal, .itinerario-section")
+      .forEach((el) => observer.observe(el));
+  }
+
+  // Si usas view transitions cambia 'DOMContentLoaded' por 'astro:page-load'
+  document.addEventListener("DOMContentLoaded", initItinerarioReveal);
+</script>

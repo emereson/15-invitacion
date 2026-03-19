@@ -2,111 +2,169 @@
 // src/components/BabyGallery.astro
 
 const childhoodPhotos = [
-  { src: "/img/BABYPICT/b3.webp", alt: "Maya de bebé", rotate: "-rotate-3" },
-  { src: "/img/BABYPICT/b5.webp", alt: "Primeros pasos", rotate: "rotate-2" },
-  { src: "/img/BABYPICT/b1.webp", alt: "Maya jugando", rotate: "-rotate-2" },
-  { src: "/img/BABYPICT/b4.webp", alt: "Cumpleaños 5", rotate: "rotate-3" },
-  {
-    src: "/img/BABYPICT/b2.webp",
-    alt: "Maya en el parque",
-    rotate: "-rotate-1",
-  },
-  {
-    src: "/img/BABYPICT/b6.webp",
-    alt: "Recuerdos felices",
-    rotate: "rotate-6",
-  },
+  { src: "/img/BABYPICT/b3.webp", alt: "Maya de bebé" },
+  { src: "/img/BABYPICT/b5.webp", alt: "Primeros pasos" },
+  { src: "/img/BABYPICT/b1.webp", alt: "Maya jugando" },
+  { src: "/img/BABYPICT/b4.webp", alt: "Cumpleaños 5" },
+  { src: "/img/BABYPICT/b2.webp", alt: "Maya en el parque" },
+  { src: "/img/BABYPICT/b6.webp", alt: "Recuerdos felices" },
 ];
 ---
 
-<section class="relative w-full py-24 bg-white overflow-hidden px-4 md:px-8">
-  {/* 🟢 DECORACIÓN DE FONDO (Hojas y Flores) */}
+<section class="relative w-full py-32 bg-slate-50 px-4 md:px-8 overflow-hidden">
+  {/* 🟢 DECORACIÓN DE FONDO: Patrón sutil y flores flotantes */}
+
   <div
-    class="absolute inset-0 bg-[url('/img/hoja.webp')] bg-repeat opacity-[0.05] pointer-events-none"
+    class="absolute top-0 left-0 w-36 md:w-56 opacity-50 pointer-events-none rotate-12 mix-blend-multiply"
   >
+    <img
+      src="/img/flor3.webp"
+      alt=""
+      class="w-full h-full object-contain"
+      aria-hidden="true"
+    />
   </div>
 
-  {/* Título de la Sección */}
-  <div class="relative z-10 text-center mb-16 gallery-reveal">
+  <div
+    class="absolute bottom-5 right-0 w-36 md:w-56 opacity-65 pointer-events-none rotate-[-15deg] mix-blend-multiply"
+  >
+    <img
+      src="/img/flor3.webp"
+      alt=""
+      class="w-full h-full object-contain"
+      aria-hidden="true"
+    />
+  </div>
+
+  {/* Título de la Sección Minimalista */}
+  <div
+    class="relative z-10 text-center mb-10 gallery-reveal flex flex-col items-center"
+  >
+    <p
+      class="font-sans text-[#D4AF37] text-xs md:text-sm tracking-[0.3em] uppercase mb-4 font-semibold"
+    >
+      Colección de Momentos
+    </p>
     <h3
-      class="font-script text-5xl md:text-7xl text-[#D4AF37] mb-2 drop-shadow-sm"
+      class="font-serif text-5xl md:text-6xl text-slate-800 mb-6 font-light tracking-tight"
     >
       Mis Primeros Pasos
     </h3>
-    <p
-      class="font-limpia text-gray-500 text-xs md:text-sm tracking-[0.3em] uppercase opacity-70"
-    >
-      Un pequeño viaje por mis recuerdos
-    </p>
+    <div class="w-12 h-0.5 bg-[#D4AF37]"></div>
   </div>
 
-  {/* 🟢 GRID DE GALERÍA */}
+  {/* 🟢 GRID DE GALERÍA MODERNA (Bento Layout con Flores) */}
+  {/* Cambiado grid-cols-1 a grid-cols-2 y ajustado auto-rows para móvil */}
   <div
-    class="relative z-10 max-w-6xl mx-auto grid grid-cols-2 md:grid-cols-3 gap-6 md:gap-10"
+    class="relative z-10 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0 auto-rows-[200px] md:auto-rows-[400px]"
   >
     {
-      childhoodPhotos.map((photo, index) => (
-        <div
-          class={`relative group gallery-item ${photo.rotate} scroll-reveal`}
-          style={`transition-delay: ${index * 150}ms;`}
-        >
-          {/* Marco de la Foto */}
-          <div class="bg-white p-2 md:p-4 shadow-[0_10px_30px_rgba(0,0,0,0.1)] border border-gray-100 rounded-sm transform transition-all duration-500 group-hover:rotate-0 group-hover:scale-110 group-hover:z-50 group-hover:shadow-2xl cursor-pointer">
-            <div class="overflow-hidden aspect-4/5 bg-gray-100">
+      childhoodPhotos.map((photo, index) => {
+        // En móvil (col-span-2), estas fotos ocuparán todo el ancho. En desktop (md:col-span-2), ocuparán la mitad.
+        const isWide = index === 0 || index === 3;
+
+        return (
+          <div
+            class={`relative scroll-reveal ${isWide ? "col-span-2 md:col-span-2" : "col-span-1 md:col-span-1"}`}
+            style={`transition-delay: ${index * 100}ms;`}
+          >
+            <button
+              class={`relative w-full h-full group overflow-hidden rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-700 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-4 cursor-zoom-in`}
+              data-highres={photo.src}
+              data-alt={photo.alt}
+              aria-label={`Ampliar imagen: ${photo.alt}`}
+            >
+              {/* Imagen principal con efecto de escala suave */}
               <img
                 src={photo.src}
                 alt={photo.alt}
-                class="w-full h-full object-cover grayscale-30 group-hover:grayscale-0 transition-all duration-700"
+                loading="lazy"
+                class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
               />
-            </div>
-            {/* Pie de foto sutil */}
-            <p class="font-elegante text-[10px] md:text-xs text-gray-400 mt-3 italic text-center uppercase tracking-widest">
-              Memory #{index + 1}
-            </p>
-          </div>
 
-          {/* Flores decorativas pegadas a algunas fotos */}
-          {index % 2 === 0 && (
-            <img
-              src="/img/rosa.webp"
-              alt=""
-              class="absolute -top-4 -right-4 w-10 md:w-16 z-20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none animate-sway"
-            />
-          )}
-        </div>
-      ))
+              {/* Overlay de gradiente oscuro (glassmorphism) */}
+              <div class="absolute inset-0 bg-linear-to-t from-black/80 via-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 ease-in-out" />
+
+              {/* Texto de la foto flotante */}
+              <div class="absolute bottom-0 left-0 w-full p-4 md:p-8 flex flex-col items-start translate-y-6 opacity-0 group-hover:translate-y-0 group-hover:opacity-100 transition-all duration-500 ease-out z-20">
+                <span class="text-[#D4AF37] text-[10px] md:text-xs font-bold tracking-widest uppercase mb-1 md:mb-2">
+                  0{index + 1}
+                </span>
+                <p class="font-sans text-white text-sm md:text-xl font-light tracking-wide truncate w-full text-left">
+                  {photo.alt}
+                </p>
+              </div>
+            </button>
+
+            {/* Pequeñas rosas decorativas flotando sobre algunas fotos */}
+            {index % 2 === 0 && (
+              <div class="absolute -top-4 -right-3 md:-top-6 md:-right-5 w-12 h-12 md:w-20 md:h-20 z-40 animate-sway group-hover:opacity-100 transition-opacity duration-500 pointer-events-none mix-blend-multiply">
+                <img
+                  src="/img/flor.webp"
+                  alt=""
+                  class="w-full h-full object-contain"
+                  aria-hidden="true"
+                />
+              </div>
+            )}
+          </div>
+        );
+      })
     }
   </div>
-
-  {/* 🟢 FLORES FLOTANTES EXTRAS POR LA SECCIÓN */}
-  <img
-    src="/img/lirio.webp"
-    alt=""
-    class="absolute top-[15%] left-[-5%] w-32 md:w-56 opacity-20 -rotate-45 pointer-events-none"
-  />
-  <img
-    src="/img/rosa.webp"
-    alt=""
-    class="absolute bottom-[10%] right-[-2%] w-24 md:w-48 opacity-30 rotate-12 pointer-events-none"
-  />
-  <img
-    src="/img/lirio.webp"
-    alt=""
-    class="absolute top-[50%] right-[2%] w-16 md:w-32 opacity-15 rotate-90 pointer-events-none"
-  />
 </section>
 
+{/* 🟢 MODAL LIGHTBOX NATIVO */}
+<dialog
+  id="lightbox-dialog"
+  class="backdrop:bg-slate-950/90 backdrop:backdrop-blur-xl bg-transparent border-none p-0 w-full h-full max-w-none max-h-none m-0 focus:outline-none open:flex justify-center items-center"
+>
+  <div
+    class="relative w-full h-full flex justify-center items-center p-4 md:p-12"
+  >
+    {/* Botón de Cerrar Minimalista */}
+    <button
+      id="lightbox-close"
+      class="absolute top-4 right-4 md:top-10 md:right-10 text-white/50 hover:text-white transition-colors duration-300 focus:outline-none z-50 bg-white/10 hover:bg-white/20 p-2 md:p-3 rounded-full backdrop-blur-md"
+      aria-label="Cerrar visor"
+    >
+      <svg
+        width="24"
+        height="24"
+        viewBox="0 0 24 24"
+        fill="none"
+        stroke="currentColor"
+        stroke-width="2"
+        stroke-linecap="round"
+        stroke-linejoin="round"
+        class="w-6 h-6 md:w-8 md:h-8"
+      >
+        <line x1="18" y1="6" x2="6" y2="18"></line>
+        <line x1="6" y1="6" x2="18" y2="18"></line>
+      </svg>
+    </button>
+
+    {/* Imagen Ampliada */}
+    <img
+      id="lightbox-img"
+      src=""
+      alt=""
+      class="max-w-full max-h-full object-contain rounded-xl shadow-2xl transform scale-95 opacity-0 transition-all duration-700 ease-[cubic-bezier(0.25,1,0.5,1)]"
+    />
+  </div>
+</dialog>
+
 <style>
-  /* 🟢 ANIMACIONES DE REVELACIÓN */
+  /* Animaciones de Scroll Suaves */
   .scroll-reveal {
     opacity: 0;
-    transform: translateY(30px) scale(0.9);
-    transition: all 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    transform: translateY(30px);
+    transition: all 0.8s cubic-bezier(0.25, 1, 0.5, 1);
   }
 
   .scroll-reveal.active {
     opacity: 1;
-    transform: translateY(0) scale(1);
+    transform: translateY(0);
   }
 
   .gallery-reveal {
@@ -120,42 +178,102 @@ const childhoodPhotos = [
     transform: translateY(0);
   }
 
-  /* Balanceo de las rosas pequeñas */
+  /* Animación Lightbox */
+  .lightbox-img-visible {
+    transform: scale(1) !important;
+    opacity: 1 !important;
+  }
+
+  /* Animación de balanceo para las rosas */
   .animate-sway {
-    animation: sway 4s ease-in-out infinite alternate;
+    animation: sway 5s ease-in-out infinite alternate;
   }
 
   @keyframes sway {
     from {
-      transform: rotate(-10deg) translateY(0);
+      transform: rotate(-8deg) translateY(0);
     }
     to {
-      transform: rotate(10deg) translateY(-5px);
+      transform: rotate(8deg) translateY(-5px);
     }
   }
 </style>
 
 <script>
-  function initGallery() {
+  function initModernGallery() {
+    // 1. Observer para revelación al hacer scroll
     const observer = new IntersectionObserver(
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting) {
             entry.target.classList.add("active");
-            // Si es un contenedor, animamos los hijos también
-            const children = entry.target.querySelectorAll(".scroll-reveal");
-            children.forEach((child) => child.classList.add("active"));
+            observer.unobserve(entry.target);
           }
         });
       },
-      { threshold: 0.15 },
+      { threshold: 0.1 },
     );
 
-    // Observamos el título y los items de la galería
     document
       .querySelectorAll(".gallery-reveal, .scroll-reveal")
       .forEach((el) => observer.observe(el));
+
+    // 2. Lógica del Lightbox Nativo
+    const dialog = document.getElementById(
+      "lightbox-dialog",
+    ) as HTMLDialogElement | null;
+    const lightboxImg = document.getElementById(
+      "lightbox-img",
+    ) as HTMLImageElement | null;
+    const closeBtn = document.getElementById("lightbox-close");
+    const triggers = document.querySelectorAll("button[data-highres]");
+
+    if (!dialog || !lightboxImg || !closeBtn) return;
+
+    // Abrir Lightbox
+    triggers.forEach((btn) => {
+      btn.addEventListener("click", () => {
+        const highResSrc = btn.getAttribute("data-highres");
+        const altText = btn.getAttribute("data-alt");
+
+        if (highResSrc) {
+          lightboxImg.src = highResSrc;
+          lightboxImg.alt = altText || "Imagen";
+
+          document.body.style.overflow = "hidden";
+          dialog.showModal();
+
+          requestAnimationFrame(() => {
+            lightboxImg.classList.add("lightbox-img-visible");
+          });
+        }
+      });
+    });
+
+    // Cerrar Lightbox
+    const closeLightbox = () => {
+      lightboxImg.classList.remove("lightbox-img-visible");
+
+      setTimeout(() => {
+        dialog.close();
+        document.body.style.overflow = "";
+        lightboxImg.src = "";
+      }, 500);
+    };
+
+    closeBtn.addEventListener("click", closeLightbox);
+
+    dialog.addEventListener("click", (e) => {
+      if (e.target === dialog || e.target === dialog.firstElementChild) {
+        closeLightbox();
+      }
+    });
+
+    dialog.addEventListener("cancel", (e) => {
+      e.preventDefault();
+      closeLightbox();
+    });
   }
 
-  document.addEventListener("DOMContentLoaded", initGallery);
+  document.addEventListener("DOMContentLoaded", initModernGallery);
 </script>
