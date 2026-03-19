@@ -17,13 +17,37 @@ import Itinerario from "../components/Itinerario.astro"; // 🟢 IMPORTAR
 
 <Layout>
   <WelcomeModal />
-  <main>
-    <div class="bg-custom-gradient"></div>
+  <main class="bg-slate-50">
     <Banner />
     <Cronometro />
     <Frase />
     <PadresPadrinos />
     <Ubicaciones />
+    <div class="mx-auto max-w-6xl block md:hidden pb-10 px-4 overflow-x-clip">
+      <div
+        class="relative w-full min-h-160 md:min-h-0 h-[55dvh] md:h-auto z-20 scroll-reveal
+      border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
+      >
+        {/* ENVOLTURA DE LA IMAGEN */}
+        <div
+          class="absolute inset-0 overflow-hidden rounded-3xl md:rounded-none md:rounded-r-[2.5rem] shadow-[0_15px_30px_rgba(0,0,0,0.5)] md:shadow-none"
+        >
+          <img
+            src="/img/5.webp"
+            alt="Lugar del evento"
+            class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
+          />
+          {/* Sombra interna para fusionar (Invertida para la izquierda) */}
+        </div>
+
+        {/* 🌸 FLOR DECORATIVA DE LA IMAGEN */}
+        <img
+          src="/img/flor3.webp"
+          alt="Flor Decorativa"
+          class="absolute -bottom-12 -left-8 w-36 md:w-56 rotate-45 animate-sway-delayed pointer-events-none z-30 scroll-reveal delay-500 opacity-90 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
+        />
+      </div>
+    </div>
     <Itinerario />
     <Contactos />
     <BabyGallery />
@@ -33,19 +57,3 @@ import Itinerario from "../components/Itinerario.astro"; // 🟢 IMPORTAR
     <AudioPlay />
   </main>
 </Layout>
-
-<style>
-  .bg-custom-gradient {
-    position: fixed;
-    top: 0;
-    left: 0;
-    width: 100vw;
-    height: 100vh;
-    background: radial-gradient(
-      ellipse at bottom left,
-      #202020 0%,
-      #030d2c 40%,
-      #000000 100%
-    );
-  }
-</style>
