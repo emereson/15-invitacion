@@ -6,23 +6,17 @@
   class="relative w-full py-16 flex justify-center items-center bg-slate-50 overflow-hidden px-4 md:px-8"
 >
   {/* 🟢 CONTENEDOR PRINCIPAL */}
-  {
-    /* En desktop: Este contenedor lleva el borde dorado continuo y la sombra para que parezca 1 sola tarjeta */
-  }
   <div
     class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-0
     md:border md:border-[#D4AF37] md:rounded-[2.5rem] md:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
     transition-all duration-700 md:hover:shadow-[0_0_40px_rgba(212,175,55,0.25)]"
   >
     {/* 🟢 COLUMNA DE LA IMAGEN (Izquierda en desktop) */}
-    {/* En desktop pierde el borde para usar el del padre */}
     <div
       class="relative w-full md:w-1/2 min-h-125 md:min-h-0 h-[55dvh] md:h-auto z-20 scroll-reveal
       border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
     >
-      {
-        /* ENVOLTURA DE LA IMAGEN (Aquí va el overflow-hidden para que NO corte la flor) */
-      }
+      {/* ENVOLTURA DE LA IMAGEN */}
       <div
         class="absolute inset-0 overflow-hidden rounded-3xl md:rounded-none md:rounded-l-[2.5rem] shadow-[0_15px_30px_rgba(0,0,0,0.5)] md:shadow-none"
       >
@@ -38,7 +32,7 @@
         </div>
       </div>
 
-      {/* 🌸 FLOR IZQUIERDA (Ahora fuera de la envoltura, puede sobresalir) */}
+      {/* 🌸 FLOR IZQUIERDA */}
       <img
         src="/img/rosa2.webp"
         alt="Flor Decorativa"
@@ -47,7 +41,6 @@
     </div>
 
     {/* 🟢 COLUMNA DE TEXTO / CONTACTOS (Derecha en desktop) */}
-    {/* En desktop pierde el borde para usar el del padre */}
     <div
       class="relative w-full md:w-1/2 min-h-150 px-6 py-16 md:min-h-200 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center z-10
       border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
@@ -76,17 +69,19 @@
       />
 
       <div class="relative z-30 w-full flex flex-col items-center">
-        {/* TÍTULO */}
+        {/* TÍTULO BILINGÜE */}
         <div class="scroll-reveal flex flex-col items-center w-full">
           <h3
             class="font-script text-5xl md:text-7xl text-[#D4AF37] mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
-            Contactos
+            <span class="es-content">Contactos</span>
+            <span class="en-content">Contacts</span>
           </h3>
           <p
             class="font-limpia text-slate-200 text-[10px] md:text-xs tracking-[0.4em] md:tracking-[0.5em] uppercase mb-10 md:mb-14 opacity-90 pr-[0.4em]"
           >
-            Confirmar asistencia:
+            <span class="es-content">Confirmar asistencia:</span>
+            <span class="en-content">RSVP directly:</span>
           </p>
         </div>
 

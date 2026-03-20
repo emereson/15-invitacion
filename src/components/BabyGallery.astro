@@ -2,12 +2,32 @@
 // src/components/BabyGallery.astro
 
 const childhoodPhotos = [
-  { src: "/img/BABYPICT/b3.webp", alt: "Maya de bebé" },
-  { src: "/img/BABYPICT/b5.webp", alt: "Primeros pasos" },
-  { src: "/img/BABYPICT/b1.webp", alt: "Maya jugando" },
-  { src: "/img/BABYPICT/b4.webp", alt: "Cumpleaños 5" },
-  { src: "/img/BABYPICT/b2.webp", alt: "Maya en el parque" },
-  { src: "/img/BABYPICT/b6.webp", alt: "Recuerdos felices" },
+  { src: "/img/BABYPICT/b3.webp", altEs: "Maya de bebé", altEn: "Baby Maya" },
+  {
+    src: "/img/BABYPICT/b5.webp",
+    altEs: "Primeros pasos",
+    altEn: "First steps",
+  },
+  {
+    src: "/img/BABYPICT/b1.webp",
+    altEs: "Maya jugando",
+    altEn: "Maya playing",
+  },
+  {
+    src: "/img/BABYPICT/b4.webp",
+    altEs: "Cumpleaños 5",
+    altEn: "5th Birthday",
+  },
+  {
+    src: "/img/BABYPICT/b2.webp",
+    altEs: "Maya en el parque",
+    altEn: "Maya at the park",
+  },
+  {
+    src: "/img/BABYPICT/b6.webp",
+    altEs: "Recuerdos felices",
+    altEn: "Happy memories",
+  },
 ];
 ---
 
@@ -43,24 +63,24 @@ const childhoodPhotos = [
     <p
       class="font-sans text-[#D4AF37] text-xs md:text-sm tracking-[0.3em] uppercase mb-4 font-semibold"
     >
-      Colección de Momentos
+      <span class="es-content">Colección de Momentos</span>
+      <span class="en-content">Collection of Moments</span>
     </p>
     <h3
       class="font-serif text-5xl md:text-6xl text-slate-800 mb-6 font-light tracking-tight"
     >
-      Mis Primeros Pasos
+      <span class="es-content">Mis Primeros Pasos</span>
+      <span class="en-content">My First Steps</span>
     </h3>
     <div class="w-12 h-0.5 bg-[#D4AF37]"></div>
   </div>
 
   {/* 🟢 GRID DE GALERÍA MODERNA (Bento Layout con Flores) */}
-  {/* Cambiado grid-cols-1 a grid-cols-2 y ajustado auto-rows para móvil */}
   <div
     class="relative z-10 max-w-7xl mx-auto grid grid-cols-2 md:grid-cols-4 gap-4 md:gap-6 px-2 md:px-0 auto-rows-[200px] md:auto-rows-[400px]"
   >
     {
       childhoodPhotos.map((photo, index) => {
-        // En móvil (col-span-2), estas fotos ocuparán todo el ancho. En desktop (md:col-span-2), ocuparán la mitad.
         const isWide = index === 0 || index === 3;
 
         return (
@@ -71,15 +91,15 @@ const childhoodPhotos = [
             <button
               class={`relative w-full h-full group overflow-hidden rounded-2xl md:rounded-3xl shadow-sm hover:shadow-2xl transition-all duration-700 focus:outline-none focus:ring-2 focus:ring-[#D4AF37] focus:ring-offset-4 cursor-zoom-in`}
               data-highres={photo.src}
-              data-alt={photo.alt}
-              aria-label={`Ampliar imagen: ${photo.alt}`}
+              data-alt-es={photo.altEs}
+              data-alt-en={photo.altEn}
             >
               {/* Imagen principal con efecto de escala suave */}
               <img
                 src={photo.src}
-                alt={photo.alt}
+                alt={photo.altEs}
                 loading="lazy"
-                class="w-full h-full object-cover transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
+                class="w-full h-full object-cover object-top transition-transform duration-1000 ease-[cubic-bezier(0.25,1,0.5,1)] group-hover:scale-110"
               />
 
               {/* Overlay de gradiente oscuro (glassmorphism) */}
@@ -91,7 +111,8 @@ const childhoodPhotos = [
                   0{index + 1}
                 </span>
                 <p class="font-sans text-white text-sm md:text-xl font-light tracking-wide truncate w-full text-left">
-                  {photo.alt}
+                  <span class="es-content">{photo.altEs}</span>
+                  <span class="en-content">{photo.altEn}</span>
                 </p>
               </div>
             </button>
@@ -234,11 +255,21 @@ const childhoodPhotos = [
     triggers.forEach((btn) => {
       btn.addEventListener("click", () => {
         const highResSrc = btn.getAttribute("data-highres");
-        const altText = btn.getAttribute("data-alt");
+
+        // Obtenemos el idioma actual para pasarle el alt correcto a la imagen ampliada
+        const currentLang = document.documentElement.classList.contains(
+          "lang-en",
+        )
+          ? "en"
+          : "es";
+        const altText =
+          currentLang === "en"
+            ? btn.getAttribute("data-alt-en")
+            : btn.getAttribute("data-alt-es");
 
         if (highResSrc) {
           lightboxImg.src = highResSrc;
-          lightboxImg.alt = altText || "Imagen";
+          lightboxImg.alt = altText || "Imagen / Image";
 
           document.body.style.overflow = "hidden";
           dialog.showModal();

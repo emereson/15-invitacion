@@ -12,9 +12,6 @@
   </div>
 
   {/* 🟢 CONTENEDOR PRINCIPAL TIPO TARJETA */}
-  {
-    /* Le quitamos el shadow-[...] de Tailwind y le agregamos la clase 'itinerario-card' */
-  }
   <div
     class="itinerario-card relative z-20 w-full max-w-4xl mx-auto px-4 py-12 md:px-12 md:py-16 bg-linear-to-b from-[#111d33]/90 to-[#0a111e]/90 backdrop-blur-xl border border-[#D4AF37]/40 rounded-[2.5rem] flex flex-col items-center overflow-visible"
   >
@@ -55,12 +52,14 @@
         <h2
           class="font-script text-5xl md:text-7xl text-[#D4AF37] mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
         >
-          Itinerario
+          <span class="es-content">Itinerario</span>
+          <span class="en-content">Itinerary</span>
         </h2>
         <p
           class="font-elegante text-slate-300 text-xs md:text-sm tracking-[0.4em] uppercase mb-6 opacity-80 text-center"
         >
-          Los momentos de la noche
+          <span class="es-content">Los momentos de la noche</span>
+          <span class="en-content">Moments of the night</span>
         </p>
 
         {/* Divisor Superior Dorado */}
@@ -124,7 +123,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Llegada de invitados
+                <span class="es-content">Llegada de invitados</span>
+                <span class="en-content">Guest Arrival</span>
               </p>
             </div>
             <div
@@ -183,7 +183,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Gran Entrada
+                <span class="es-content">Gran Entrada</span>
+                <span class="en-content">Grand Entrance</span>
               </p>
             </div>
           </li>
@@ -199,7 +200,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Cena
+                <span class="es-content">Cena</span>
+                <span class="en-content">Dinner</span>
               </p>
             </div>
             <div
@@ -258,7 +260,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Bailes Especiales
+                <span class="es-content">Bailes Especiales</span>
+                <span class="en-content">Special Dances</span>
               </p>
             </div>
           </li>
@@ -274,7 +277,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Que no pare la fiesta!
+                <span class="es-content">Que no pare la fiesta!</span>
+                <span class="en-content">Let the party begin!</span>
               </p>
             </div>
             <div
@@ -336,7 +340,8 @@
               <p
                 class="event text-white text-lg md:text-xl font-light tracking-wide drop-shadow-sm"
               >
-                Fin de Recepción
+                <span class="es-content">Fin de Recepción</span>
+                <span class="en-content">End of Reception</span>
               </p>
             </div>
           </li>

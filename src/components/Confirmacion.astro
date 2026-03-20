@@ -64,12 +64,14 @@
           <h3
             class="font-script text-5xl md:text-6xl text-[#D4AF37] mb-2 drop-shadow-[0_2px_4px_rgba(0,0,0,0.8)]"
           >
-            Confirmación
+            <span class="es-content">Confirmación</span>
+            <span class="en-content">RSVP</span>
           </h3>
           <p
             class="font-limpia text-slate-200 text-[10px] md:text-xs tracking-[0.3em] uppercase opacity-90"
           >
-            ¿Nos acompañas en este día?
+            <span class="es-content">¿Nos acompañas en este día?</span>
+            <span class="en-content">Will you join us on this day?</span>
           </p>
         </div>
 
@@ -80,32 +82,36 @@
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
-              >Nombre Completo</label
             >
+              <span class="es-content">Nombre Completo</span>
+              <span class="en-content">Full Name</span>
+            </label>
             <input
               type="text"
               name="from_name"
               required
               class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:border-[#D4AF37] focus:bg-[#D4AF37]/10 focus:ring-1 focus:ring-[#D4AF37] outline-none transition-all duration-300 font-elegante shadow-inner"
-              placeholder="Tu nombre y apellido"
+              placeholder="Nombre y apellido / First and last name"
             />
           </div>
 
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
-              >¿Asistirás?</label
             >
+              <span class="es-content">¿Asistirás?</span>
+              <span class="en-content">Will you attend?</span>
+            </label>
             <select
               name="attendance"
               required
               class="w-full px-4 py-3 bg-[#0a111e] md:bg-white/5 border border-white/10 rounded-xl text-white focus:border-[#D4AF37] focus:bg-[#D4AF37]/10 outline-none transition-all duration-300 font-elegante appearance-none shadow-inner"
             >
               <option value="Si, asistiré" class="bg-[#0a111e] text-white"
-                >Sí, asistiré con gusto</option
+                >Sí, asistiré / Yes, I will attend</option
               >
               <option value="No podré asistir" class="bg-[#0a111e] text-white"
-                >Lo siento, no podré asistir</option
+                >No podré asistir / I won't be able to attend</option
               >
             </select>
           </div>
@@ -113,8 +119,10 @@
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
-              >Cantidad de Personas</label
             >
+              <span class="es-content">Cantidad de Personas</span>
+              <span class="en-content">Number of Guests</span>
+            </label>
             <input
               type="number"
               name="guests"
@@ -122,7 +130,7 @@
               max="10"
               required
               class="w-full px-4 py-3 bg-white/5 border border-white/10 rounded-xl text-white placeholder-slate-400 focus:border-[#D4AF37] focus:bg-[#D4AF37]/10 outline-none transition-all duration-300 font-elegante shadow-inner"
-              placeholder="Ej. 2"
+              placeholder="Ej. / E.g. 2"
             />
           </div>
 
@@ -132,9 +140,12 @@
             class="group relative w-full overflow-hidden mt-4 bg-linear-to-br from-[#162642] to-[#0a111e] border border-[#D4AF37]/40 py-4 rounded-xl transition-all duration-500 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-[1.02] shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
           >
             <span
+              id="btn-text"
               class="relative z-10 font-limpia text-[#c1b07a] tracking-[0.3em] uppercase text-sm font-bold transition-colors duration-300"
-              >Enviar Confirmación</span
             >
+              <span class="es-content">Enviar Confirmación</span>
+              <span class="en-content">Send RSVP</span>
+            </span>
           </button>
         </form>
       </div>
@@ -176,20 +187,26 @@
       </div>
 
       <h4 id="modal-title" class="font-script text-4xl text-[#D4AF37] mb-2">
-        ¡Gracias!
+        <span class="es-content">¡Gracias!</span>
+        <span class="en-content">Thank you!</span>
       </h4>
       <p
         id="modal-message"
         class="font-elegante text-slate-200 text-sm tracking-wider mb-6"
       >
-        Tu respuesta ha sido enviada correctamente.
+        <span class="es-content"
+          >Tu respuesta ha sido enviada correctamente.</span
+        >
+        <span class="en-content">Your response has been sent successfully.</span
+        >
       </p>
 
       <button
         id="modal-close-btn"
         class="px-8 py-3 bg-white/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] rounded-full font-limpia text-xs tracking-widest uppercase transition-colors duration-300"
       >
-        Cerrar
+        <span class="es-content">Cerrar</span>
+        <span class="en-content">Close</span>
       </button>
     </div>
   </div>
@@ -275,7 +292,8 @@
   function initConfirmacionReveal() {
     const btn = document.getElementById("submit-btn") as HTMLButtonElement;
     const form = document.getElementById("rsvp-form") as HTMLFormElement;
-    const btnText = btn?.querySelector("span");
+    // Seleccionamos el contenedor de texto del botón por su nuevo ID
+    const btnText = document.getElementById("btn-text");
 
     // Elementos del Modal
     const modal = document.getElementById("status-modal") as HTMLDialogElement;
@@ -286,21 +304,19 @@
 
     const API_URL = "https://form.alipioponce.com/api/rsvp";
 
-    // Función para mostrar el modal con contenido dinámico
+    // Función para mostrar el modal con contenido dinámico BILINGÜE
     const showModal = (type: "success" | "error") => {
       if (!modal || !modalTitle || !modalMessage || !modalIcon) return;
 
       if (type === "success") {
-        modalTitle.innerText = "¡Gracias!";
         modalTitle.className = "font-script text-4xl text-[#D4AF37] mb-2";
-        modalMessage.innerText =
-          "Tu respuesta ha sido enviada correctamente. ¡Nos vemos en la fiesta!";
+        modalTitle.innerHTML = `<span class="es-content">¡Gracias!</span><span class="en-content">Thank you!</span>`;
+        modalMessage.innerHTML = `<span class="es-content">Tu respuesta ha sido enviada correctamente. ¡Nos vemos en la fiesta!</span><span class="en-content">Your RSVP has been sent successfully. See you at the party!</span>`;
         modalIcon.innerHTML = `<svg class="w-16 h-16 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
       } else {
-        modalTitle.innerText = "Lo sentimos";
         modalTitle.className = "font-script text-4xl text-red-400 mb-2";
-        modalMessage.innerText =
-          "Hubo un problema al enviar tu confirmación. Por favor, intenta de nuevo o contáctanos por WhatsApp.";
+        modalTitle.innerHTML = `<span class="es-content">Lo sentimos</span><span class="en-content">We are sorry</span>`;
+        modalMessage.innerHTML = `<span class="es-content">Hubo un problema al enviar tu confirmación. Por favor, intenta de nuevo o contáctanos.</span><span class="en-content">There was an issue sending your RSVP. Please try again or contact us.</span>`;
         modalIcon.innerHTML = `<svg class="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
       }
 
@@ -325,8 +341,13 @@
     form?.addEventListener("submit", async function (event) {
       event.preventDefault();
 
-      const originalText = btnText ? btnText.innerText : "Enviar Confirmación";
-      if (btnText) btnText.innerText = "ENVIANDO...";
+      // Guardamos el HTML original para restaurarlo después
+      const originalHTML = btnText ? btnText.innerHTML : "";
+
+      if (btnText) {
+        // Inyectamos estado de carga bilingüe
+        btnText.innerHTML = `<span class="es-content">ENVIANDO...</span><span class="en-content">SENDING...</span>`;
+      }
       btn.disabled = true;
 
       const formData = new FormData(form);
@@ -357,7 +378,7 @@
         showModal("error");
       } finally {
         // Restaurar estado original del botón siempre
-        if (btnText) btnText.innerText = originalText;
+        if (btnText) btnText.innerHTML = originalHTML;
         btn.disabled = false;
       }
     });

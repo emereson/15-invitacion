@@ -18,3 +18,14 @@ img.mariposa {
     #000000 100%
   );
 }
+
+/* --- LÓGICA BILINGÜE --- */
+/* Oculta el inglés por defecto */
+html:not(.lang-en) .en-content {
+  display: none !important;
+}
+
+/* Oculta el español cuando está en inglés */
+html.lang-en .es-content {
+  display: none !important;
+}
