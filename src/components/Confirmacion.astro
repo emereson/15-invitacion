@@ -5,16 +5,13 @@
 <section
   class="relative w-full py-16 flex justify-center items-center bg-slate-50 overflow-hidden px-4 md:px-8"
 >
-  {/* 🟢 CONTENEDOR PRINCIPAL TIPO TARJETA (Mismo estilo que Contactos) */}
+  {/* 🟢 CONTENEDOR PRINCIPAL TIPO TARJETA */}
   <div
-    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-0
-    md:border md:border-[#D4AF37] md:rounded-[2.5rem] md:shadow-[0_20px_50px_rgba(0,0,0,0.4)]
-    transition-all duration-700 md:hover:shadow-[0_0_40px_rgba(212,175,55,0.25)]"
+    class="relative z-10 w-full max-w-6xl mx-auto flex flex-col md:flex-row gap-16 md:gap-0 md:border md:border-[#D4AF37] md:rounded-[2.5rem] md:shadow-[0_20px_50px_rgba(0,0,0,0.4)] transition-all duration-700 md:hover:shadow-[0_0_40px_rgba(212,175,55,0.25)]"
   >
     {/* 🟢 COLUMNA DE LA IMAGEN */}
     <div
-      class="relative w-full md:w-1/2 min-h-125 md:min-h-0 h-[55dvh] md:h-auto z-20 scroll-reveal
-      border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
+      class="relative w-full md:w-1/2 min-h-125 md:min-h-0 h-[55dvh] md:h-auto z-20 scroll-reveal border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
     >
       <div
         class="absolute inset-0 overflow-hidden rounded-3xl md:rounded-none md:rounded-l-[2.5rem] shadow-[0_15px_30px_rgba(0,0,0,0.5)] md:shadow-none"
@@ -24,14 +21,11 @@
           alt="Maya Quinceañera"
           class="w-full h-full object-cover transition-transform duration-1000 hover:scale-105"
         />
-        {/* Sombra interna para fusionar (Misma de Contactos) */}
         <div
           class="absolute inset-0 shadow-[inset_0_-40px_40px_-20px_rgba(2,6,23,0.8)] md:shadow-[inset_-30px_0_40px_-30px_rgba(2,6,23,0.9)] pointer-events-none"
         >
         </div>
       </div>
-
-      {/* 🌸 FLOR IZQUIERDA (Decorativa) */}
       <img
         src="/img/rosa2.webp"
         alt="Flor Decorativa"
@@ -39,10 +33,9 @@
       />
     </div>
 
-    {/* 🟢 COLUMNA DEL FORMULARIO (Fondo oscuro con hojas) */}
+    {/* 🟢 COLUMNA DEL FORMULARIO */}
     <div
-      class="relative w-full md:w-1/2 min-h-150 px-6 py-16 md:min-h-200 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center z-10
-      border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
+      class="relative w-full md:w-1/2 min-h-150 px-6 py-16 md:min-h-200 md:p-12 lg:p-16 flex flex-col justify-center items-center text-center z-10 border border-[#D4AF37] rounded-3xl md:border-none md:rounded-none"
     >
       <div
         class="absolute inset-0 bg-[#0a111e]/50 backdrop-blur-xl rounded-3xl md:rounded-none md:rounded-r-[2.5rem] overflow-hidden z-0 md:shadow-[inset_20px_0_40px_-20px_rgba(2,6,23,0.9)]"
@@ -53,13 +46,11 @@
         </div>
       </div>
 
-      {/* 🌸 FLOR DERECHA (Arriba) */}
       <img
         src="/img/rosa2.webp"
         alt="Flor"
         class="absolute -top-12 -right-8 w-36 md:w-52 rotate-135 animate-sway pointer-events-none z-30 scroll-reveal delay-300 opacity-90 drop-shadow-[0_10px_15px_rgba(0,0,0,0.6)]"
       />
-      {/* 🌸 FLOR EXTRA (Solo móvil) */}
       <img
         src="/img/rosa2.webp"
         alt="Flor"
@@ -67,7 +58,6 @@
       />
 
       <div class="relative z-30 w-full flex flex-col items-center">
-        {/* TÍTULO */}
         <div
           class="scroll-reveal text-center mb-8 flex flex-col items-center w-full"
         >
@@ -83,7 +73,6 @@
           </p>
         </div>
 
-        {/* 🟢 FORMULARIO RSVP (Estilo Dark Mode Glassmorphism) */}
         <form
           id="rsvp-form"
           class="w-full max-w-sm space-y-5 scroll-reveal delay-200"
@@ -91,9 +80,8 @@
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
+              >Nombre Completo</label
             >
-              Nombre Completo
-            </label>
             <input
               type="text"
               name="from_name"
@@ -106,9 +94,8 @@
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
+              >¿Asistirás?</label
             >
-              ¿Asistirás?
-            </label>
             <select
               name="attendance"
               required
@@ -126,9 +113,8 @@
           <div class="flex flex-col items-start">
             <label
               class="font-elegante text-xs text-slate-300 uppercase tracking-widest mb-2 ml-1"
+              >Cantidad de Personas</label
             >
-              Cantidad de Personas
-            </label>
             <input
               type="number"
               name="guests"
@@ -140,44 +126,86 @@
             />
           </div>
 
-          {/* Botón de Submit (Estilo Contactos) */}
           <button
             type="submit"
             id="submit-btn"
-            class="group relative w-full overflow-hidden mt-2 bg-linear-to-br from-[#162642] to-[#0a111e] border border-[#D4AF37]/40 py-4 rounded-xl transition-all duration-500 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-[1.02] shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
+            class="group relative w-full overflow-hidden mt-4 bg-linear-to-br from-[#162642] to-[#0a111e] border border-[#D4AF37]/40 py-4 rounded-xl transition-all duration-500 hover:bg-[#D4AF37] hover:border-[#D4AF37] hover:scale-[1.02] shadow-[0_0_15px_rgba(0,0,0,0.5)] hover:shadow-[0_0_20px_rgba(212,175,55,0.4)]"
           >
             <span
               class="relative z-10 font-limpia text-[#c1b07a] group-hover:text-[#0a111e] tracking-[0.3em] uppercase text-sm font-bold transition-colors duration-300"
+              >Enviar Confirmación</span
             >
-              Enviar Confirmación
-            </span>
           </button>
-
-          <p
-            id="form-status"
-            class="text-[10px] font-elegante uppercase tracking-widest mt-4 opacity-0 transition-opacity duration-500 text-center w-full"
-          >
-          </p>
         </form>
       </div>
     </div>
   </div>
 </section>
 
+{/* 🟢 MODAL FLOTANTE DE RESPUESTA (Toast / Alert) */}
+<dialog
+  id="status-modal"
+  class="backdrop:bg-[#0a111e]/80 backdrop:backdrop-blur-md bg-transparent border-none p-0 w-full max-w-md m-auto focus:outline-none open:flex justify-center items-center"
+>
+  <div
+    class="relative w-full mx-4 md:mx-0 bg-linear-to-b from-[#111d33] to-[#0a111e] border border-[#D4AF37]/50 rounded-2xl shadow-[0_20px_50px_rgba(0,0,0,0.5)] p-8 text-center overflow-hidden modal-content"
+  >
+    {/* Decoración sutil de fondo en el modal */}
+    <div
+      class="absolute inset-0 bg-[url('/img/hoja.webp')] bg-repeat bg-cover bg-center mix-blend-overlay opacity-20 pointer-events-none"
+    >
+    </div>
+
+    <div class="relative z-10 flex flex-col items-center">
+      {/* Ícono dinámico (se cambia por JS) */}
+      <div id="modal-icon" class="mb-4">
+        {/* SVG Success por defecto */}
+        <svg
+          class="w-16 h-16 text-[#D4AF37]"
+          fill="none"
+          stroke="currentColor"
+          viewBox="0 0 24 24"
+          xmlns="http://www.w3.org/2000/svg"
+        >
+          <path
+            stroke-linecap="round"
+            stroke-linejoin="round"
+            stroke-width="1.5"
+            d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+        </svg>
+      </div>
+
+      <h4 id="modal-title" class="font-script text-4xl text-[#D4AF37] mb-2">
+        ¡Gracias!
+      </h4>
+      <p
+        id="modal-message"
+        class="font-elegante text-slate-200 text-sm tracking-wider mb-6"
+      >
+        Tu respuesta ha sido enviada correctamente.
+      </p>
+
+      <button
+        id="modal-close-btn"
+        class="px-8 py-3 bg-white/10 hover:bg-[#D4AF37]/20 border border-[#D4AF37]/50 text-[#D4AF37] rounded-full font-limpia text-xs tracking-widest uppercase transition-colors duration-300"
+      >
+        Cerrar
+      </button>
+    </div>
+  </div>
+</dialog>
+
 <style>
-  /* 🟢 ANIMACIÓN DE REVELADO */
+  /* Animaciones existentes... */
   .scroll-reveal {
     opacity: 0;
     transform: translateY(30px);
     transition: all 1s cubic-bezier(0.16, 1, 0.3, 1);
   }
-
   .scroll-reveal.active {
     opacity: 1;
     transform: translateY(0);
   }
-
-  /* Delays */
   .delay-200 {
     transition-delay: 0.2s;
   }
@@ -191,7 +219,6 @@
     transition-delay: 0.5s;
   }
 
-  /* 🟢 BALANCEO */
   .animate-sway {
     animation: sway 8s ease-in-out infinite;
   }
@@ -209,63 +236,130 @@
     }
   }
 
-  /* Modificar el color del icono de flecha nativo en los selects (para navegadores Webkit) */
   select {
     background-image: url("data:image/svg+xml,%3csvg xmlns='http://www.w3.org/2000/svg' fill='none' viewBox='0 0 20 20'%3e%3cpath stroke='%23D4AF37' stroke-linecap='round' stroke-linejoin='round' stroke-width='1.5' d='M6 8l4 4 4-4'/%3e%3c/svg%3e");
     background-position: right 1rem center;
     background-repeat: no-repeat;
     background-size: 1.5em 1.5em;
   }
+
+  /* 🟢 ANIMACIÓN DEL MODAL FLOTANTE */
+  #status-modal[open] {
+    animation: fadeIn 0.3s ease-out;
+  }
+  #status-modal[open] .modal-content {
+    animation: slideUp 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }
+  @keyframes slideUp {
+    from {
+      opacity: 0;
+      transform: translateY(30px) scale(0.95);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0) scale(1);
+    }
+  }
 </style>
 
-{/* 🟢 INTEGRACIÓN EMAILJS */}
-<script
-  type="text/javascript"
-  src="https://cdn.jsdelivr.net/npm/@emailjs/browser@3/dist/email.min.js"
-></script>
-
 <script>
-  // Inicializa con tu PUBLIC KEY de EmailJS
-  // @ts-ignore
-  emailjs.init("TU_PUBLIC_KEY");
-
   function initConfirmacionReveal() {
     const btn = document.getElementById("submit-btn") as HTMLButtonElement;
     const form = document.getElementById("rsvp-form") as HTMLFormElement;
-    const status = document.getElementById("form-status");
     const btnText = btn?.querySelector("span");
 
-    form?.addEventListener("submit", function (event) {
+    // Elementos del Modal
+    const modal = document.getElementById("status-modal") as HTMLDialogElement;
+    const modalTitle = document.getElementById("modal-title");
+    const modalMessage = document.getElementById("modal-message");
+    const modalIcon = document.getElementById("modal-icon");
+    const modalCloseBtn = document.getElementById("modal-close-btn");
+
+    const API_URL = "http://localhost:8000/api/rsvp";
+
+    // Función para mostrar el modal con contenido dinámico
+    const showModal = (type: "success" | "error") => {
+      if (!modal || !modalTitle || !modalMessage || !modalIcon) return;
+
+      if (type === "success") {
+        modalTitle.innerText = "¡Gracias!";
+        modalTitle.className = "font-script text-4xl text-[#D4AF37] mb-2";
+        modalMessage.innerText =
+          "Tu respuesta ha sido enviada correctamente. ¡Nos vemos en la fiesta!";
+        modalIcon.innerHTML = `<svg class="w-16 h-16 text-[#D4AF37]" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+      } else {
+        modalTitle.innerText = "Lo sentimos";
+        modalTitle.className = "font-script text-4xl text-red-400 mb-2";
+        modalMessage.innerText =
+          "Hubo un problema al enviar tu confirmación. Por favor, intenta de nuevo o contáctanos por WhatsApp.";
+        modalIcon.innerHTML = `<svg class="w-16 h-16 text-red-400" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M12 8v4m0 4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path></svg>`;
+      }
+
+      document.body.style.overflow = "hidden"; // Bloquea scroll trasero
+      modal.showModal();
+    };
+
+    // Función para cerrar modal
+    const closeModal = () => {
+      if (!modal) return;
+      modal.close();
+      document.body.style.overflow = ""; // Restaura scroll
+    };
+
+    modalCloseBtn?.addEventListener("click", closeModal);
+
+    // Cerrar al hacer click fuera
+    modal?.addEventListener("click", (e) => {
+      if (e.target === modal) closeModal();
+    });
+
+    form?.addEventListener("submit", async function (event) {
       event.preventDefault();
 
+      const originalText = btnText ? btnText.innerText : "Enviar Confirmación";
       if (btnText) btnText.innerText = "ENVIANDO...";
       btn.disabled = true;
 
-      const serviceID = "TU_SERVICE_ID";
-      const templateID = "TU_TEMPLATE_ID";
+      const formData = new FormData(form);
+      const data = {
+        from_name: formData.get("from_name"),
+        attendance: formData.get("attendance"),
+        guests: formData.get("guests"),
+      };
 
-      // @ts-ignore
-      emailjs.sendForm(serviceID, templateID, this).then(
-        () => {
-          if (btnText) btnText.innerText = "¡ENVIADO!";
-          if (status) {
-            status.innerText = "¡Gracias! Tu respuesta ha sido enviada.";
-            status.classList.remove("text-red-400");
-            status.classList.add("text-[#D4AF37]", "opacity-100");
-          }
+      try {
+        const response = await fetch(API_URL, {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+            Accept: "application/json",
+          },
+          body: JSON.stringify(data),
+        });
+
+        if (response.ok) {
           form.reset();
-        },
-        (err: unknown) => {
-          if (btnText) btnText.innerText = "ERROR";
-          btn.disabled = false;
-          if (status) {
-            status.innerText = "Hubo un error. Intenta de nuevo.";
-            status.classList.remove("text-[#D4AF37]");
-            status.classList.add("text-red-400", "opacity-100");
-          }
-          console.error(JSON.stringify(err));
-        },
-      );
+          showModal("success");
+        } else {
+          showModal("error");
+        }
+      } catch (error) {
+        console.error("Error al enviar RSVP:", error);
+        showModal("error");
+      } finally {
+        // Restaurar estado original del botón siempre
+        if (btnText) btnText.innerText = originalText;
+        btn.disabled = false;
+      }
     });
 
     // Animación Scroll
@@ -283,6 +377,5 @@
       .forEach((el) => observer.observe(el));
   }
 
-  // Si usas view transitions de Astro, usa 'astro:page-load'
   document.addEventListener("DOMContentLoaded", initConfirmacionReveal);
 </script>
